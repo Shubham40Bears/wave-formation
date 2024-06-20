@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+body {
+  font-family: "Poppins", sans-serif;
+}
+.w-3{
+    width: 8%;
+}
+.navbar{
+    position: fixed;
+    width: 30%;
+    top: 1rem;
+    padding: 0.3em 1em;
+    z-index: 2;
+    background: linear-gradient(to left, transparent 50%, white 50%) right;
+    background-size: 200% 100%;
+    transition: all 1.5s ease;
+}
+.navbar-brand{
+    transition: all 1.5s ease;
+}
+.navbar-brand img{
+    transition: all 1.5s ease;
+}
+.nav-item a{
+    transition: all 1.5s ease;
+}
+.navbar:hover{
+    background-position: left;
+}
+.navbar .navbar-brand{
+    color: white;
+}
+.navbar:hover .navbar-brand{
+    color: black;
+}
+.navbar:hover .navbar-brand img{
+    filter: brightness(0) invert(0);
+}
+.navbar:hover .nav-item a{
+    color: black;
+}
+.navbar .nav-item a{
+    color: white;
+}
+.dark_section{
+    background: #232323;
+}
+.dark_section {
+    position: relative;
+    color: white;
+    padding: 50px 0; /* Add some padding to the section for better spacing */
+}
+.dark_section .container-fluid {
+    position: relative;
+    height: 100%;
+}
+.dark_section .row {
+    height: 100%;
+    align-items: stretch;
+}
+.dark_section .col-lg-4,
+.dark_section .col-lg-8 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.dark_section .col-lg-8 {
+    position: relative;
+    height: 100%;
+}
+.dark_section .image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.dark_section .image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    height: auto; /* Change to auto to maintain aspect ratio */
+}
+.lg-pt{
+    padding-top: 8rem;
+}
+.navbar-brand{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.navbar-brand img{
+    margin-right: 0.5rem;
+    filter: brightness(0) invert(1);
+}
+.title-hero{
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 6rem;
+    text-transform: uppercase;
+    letter-spacing: 2rem;
+}
+.sub_title{
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.3rem;
+    word-spacing: 0.4rem;
+    font-size: 1.3rem;
+    font-weight: 100;
+}
+/* #navbarNav{
+    display: none !important;
+} */
+.scroll_hr{
+    width: 0.1em;
+    position: fixed;
+    right: 1.5rem;
+    height: 60vh;
+    background: #FFD700;
+    z-index: 1;
+}
+.scroll-hint {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0.1em;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 1rem;
+    color: #FFD700;
+    background-color: #FFD700;
+    right: 1em;
+    z-index: 1;
+    height: 50vh;
+    opacity: 0.5;
+  }
+  .scroll-hint span {
+    display: block;
+    /* writing-mode: vertical-rl; */
+    position: absolute;
+    /* bottom: 0; */
+    /* margin-left: 0.2em; */
+    transform: rotateZ(270deg);
+    left: 0;
+    right: 100%;
+    top: 113%;
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+  section.abs-bg::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-image: url(/tcw/images/bg-abs.webp);
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    opacity: 0.1;
+    background-position: top;
+}
+.btn-tcw{
+    color: white;
+    border: 1px solid white;
+    border-radius: 0;
+    z-index: 3;
+    position: relative;
+    letter-spacing: 0.2em;
+    margin-top: 2em;
+    
+}
+.section-title{
+    font-family: "Bebas Neue", sans-serif;
+}
+.w-75{
+    width: 75%;
+}
+.flex-section{
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+}
+.feature-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.icons{
+    border: 1px solid;
+    border-radius: 50%;
+    padding: 1em 1em;
+    width: 18%;
+}
+.icons i{
+    font-size: 2rem;
+}
+.feature-text{
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+.feature-card{
+    height: 80vh;
+    margin-right: 1rem;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    width: 95%;
+}
+.feature-card .card-body{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    background-position: center;
+    background-size: cover;
+    border-radius: 30px;
+    padding: 3em 1em;
+}
+.ios-andoird-bg{
+    background-image: url(/tcw/images/backgrounds/features/1.gif);
+}
+.no-app-bg{
+    background-image: url(/tcw/images/backgrounds/features/2.gif);
+}
+.custom-bg{
+    background-image: url(/tcw/images/backgrounds/features/3.gif);
+}
+.save-bg{
+    background-image: url(/tcw/images/backgrounds/features/4.gif);
+}
+.feature-card .card-title{
+    text-align: left;
+}
+.slide-nav-icon i.fa-solid{
+    font-size: 2rem;
+    opacity: 0.5;
+    cursor: pointer;
+}
+.slide-nav-icon i.fa-solid:hover{
+    opacity: 1;
+}
