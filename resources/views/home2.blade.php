@@ -56,8 +56,12 @@
     </section>
     <section class="dark_section pt-0">
         <div class="container">
+                <div class="row align-items-center">
+                    <h1 class="section-title">Features</h1>
+                </div>
+        </div>
+        <div class="container-fluid">
             <div class="row align-items-center">
-                <h1 class="section-title">Features</h1>
                 <div class="text-center flex-section mt-5 slick-container">
                     <div class=" feature-container">
                         <div class="card feature-card">
@@ -112,17 +116,8 @@
     <section class="dark_section">
         <div class="container">
             <div class="row align-items-center">
-                <h1 class="section-title">Our Produts wall of fame.</h1>
-                <div class="col-lg-12 text-center mt-5">
-                    <div class="card" style="width: 18rem;">
-                    
-                        <img class="card-img-top" src="{{asset('tcw/images/products/event-planner.png')}}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">For Event Planner</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
+                <h1 class="section-title">How it works?</h1>
+                <div class="col-lg-4 text-center mt-5">
                 </div>
             </div>
         </div>

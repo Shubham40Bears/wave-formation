@@ -1,0 +1,222 @@
+#profileLayout {
+  font-family: 'NexaLight', sans-serif;
+}
+
+@font-face {
+  font-family: 'NexaLight';
+  src: url('https://res.cloudinary.com/shubhambhattacharya/raw/upload/v1718431425/NexaLight.ttf.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NexaBold';
+  src: url('https://res.cloudinary.com/shubhambhattacharya/raw/upload/v1720707645/Nexa_Bold.otf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#profileLayout * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#profileLayout html,
+#profileLayout body {
+  height: 100%;
+}
+
+#profileLayout body {
+  background: #e0e0e0; /* A light gray to complement the neumorphic effect */
+}
+
+#profileLayout .h-94 {
+  height: 94vh;
+}
+
+#profileLayout .card {
+  color: #000;
+  width: 350px;
+  border-radius: 10px;
+  background: #e0e0e0; /* Matches the body background for consistency */
+  box-shadow: 20px 20px 60px #b3b3b3, -20px -20px 60px #ffffff;
+  border: none;
+}
+
+#profileLayout .social-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#profileLayout .neo-button {
+  width: 40px;
+  height: 40px;
+  outline: 0 !important;
+  cursor: pointer;
+  color: #fff;
+  font-size: 15px;
+  border: none;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  box-shadow: inset 20px 20px 40px #b3b3b3, inset -20px -20px 40px #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#profileLayout .num {
+  color: #666 !important; /* A soft text color for contrast */
+}
+
+#profileLayout .line {
+  color: #888;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#profileLayout .profile-img {
+  object-fit: cover;
+  border: 2px solid #e0e0e0;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  background: #e0e0e0;
+  box-shadow: 20px 20px 60px #b3b3b3, -20px -20px 60px #ffffff;
+  padding: 10px;
+}
+
+#profileLayout .neo-button:active {
+  background: #d0d0d0;
+  box-shadow: inset 15px 15px 30px #a1a1a1, inset -15px -15px 30px #ffffff;
+}
+
+#profileLayout .profile_button {
+  color: #000000;
+  padding: 10px;
+  border: none;
+  outline: 0 !important;
+  border-radius: 50px;
+  background: #e0e0e0;
+  box-shadow: 20px 20px 50px #b3b3b3, -20px -20px 50px #ffffff;
+}
+
+#profileLayout .profile_button:hover {
+  color: black;
+  text-decoration: none;
+}
+
+#profileLayout .neo-button:hover {
+  color: white;
+  text-decoration: none;
+}
+
+#profileLayout .round-btn {
+  padding: 0.6rem 1rem;
+  border-radius: 50%;
+}
+
+#profileLayout .flex-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#profileLayout .foot-logo {
+  width: 45%;
+  margin-top: 4rem;
+  opacity: 0.7;
+}
+
+#profileLayout .neumorphism {
+  background: #e0e5ec;
+  box-shadow: 8px 8px 15px #a3b1c6, -8px -8px 15px #ffffff;
+  border-radius: 10px;
+  width: 95%;
+}
+
+#profileLayout .masonry {
+  -webkit-column-count: 4;
+  -moz-column-count: 4;
+  column-count: 4;
+  -webkit-column-gap: 1em;
+  -moz-column-gap: 1em;
+  column-gap: 0.2em;
+  margin: 0.2em;
+  padding: 0;
+  font-size: 0.85em;
+}
+
+#profileLayout .item {
+  display: inline-block;
+  background: #fff;
+  margin: 0 0 0.2em;
+  width: 100%;
+  -webkit-transition: 1s ease all;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 4px 0 #ccc;
+}
+
+#profileLayout .item img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media only screen and (max-width: 320px) {
+  #profileLayout .masonry {
+    -moz-column-count: 1;
+    -webkit-column-count: 1;
+    column-count: 1;
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 768px) {
+  #profileLayout .masonry {
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1200px) {
+  #profileLayout .masonry {
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+  }
+}
+
+@media only screen and (min-width: 1201px) {
+  #profileLayout .masonry {
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 3;
+  }
+}
+
+#profileLayout #lottie-animation {
+  position: absolute;
+  top: -24px;
+  height: 34vh;
+}
+.previewCardImage{
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.prevTabs{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tab-pill-btn.active{
+  background-color: transparent !important;
+  color: black !important;
+}
+.tab-pill-btn {
+  border: 1px solid black;
+}

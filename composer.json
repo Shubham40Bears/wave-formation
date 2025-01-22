@@ -9,11 +9,14 @@
         "backpack/crud": "^6.7",
         "backpack/theme-tabler": "^1.2",
         "bacon/bacon-qr-code": "^3.0",
-        "guzzlehttp/guzzle": "^7.2",
+        "cloudinary-labs/cloudinary-laravel": "^2.2",
+        "filament/filament": "^3.2",
+        "guzzlehttp/guzzle": "^7.9",
         "intervention/image": "^3.6",
         "laravel/framework": "^10.0",
         "laravel/sanctum": "^3.2",
-        "laravel/tinker": "^2.8"
+        "laravel/tinker": "^2.8",
+        "razorpay/razorpay": "2.*"
     },
     "require-dev": {
         "backpack/generators": "^4.0",
@@ -41,7 +44,8 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "@php artisan filament:upgrade"
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
@@ -52,7 +56,9 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ],
-        "post-install-cmd": ["@php artisan storage:link --quiet"]
+        "post-install-cmd": [
+            "@php artisan storage:link --quiet"
+        ]
     },
     "extra": {
         "branch-alias": {
@@ -71,5 +77,6 @@
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": []
 }

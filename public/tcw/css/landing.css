@@ -241,3 +241,7 @@ body {
 .slide-nav-icon i.fa-solid:hover{
     opacity: 1;
 }
+.card-img-top{
+    padding: 0.5em;
+    border-radius: 15px;
+}

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Http;
 
 class RegisteredUserController extends Controller
 {
@@ -34,7 +35,20 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'recaptcha_token' => 'required|string',
         ]);
+        
+        // Verify the token with Google reCAPTCHA API
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret' => env('RECAPTCHA_SECRET_KEY'),
+            'response' => $request->input('recaptcha_token'),
+        ]);
+
+        $result = $response->json();
+
+        if (!$result['success'] || $result['score'] < 0.5) {
+            return back()->withErrors(['recaptcha' => 'reCAPTCHA validation failed. Please try again.']);
+        }
 
         $user = User::create([
             'name' => $request->name,

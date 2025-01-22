@@ -69,7 +69,7 @@
           <p class="mb-0 text-secondary">
             Copyright © <script>
               document.write(new Date().getFullYear())
-            </script> Soft by Creative Tim.
+            </script> Soft by Creative Tim. Check
           </p>
         </div>
       </div>
@@ -93,7 +93,9 @@
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6Le83b4qAAAAAAANYy4UUrWaDjO8hvnpUle49HHf"></script>
   <script src="{{asset('theme_tcw/assets/js/soft-ui-dashboard.min.js')}}"></script>
+  @stack('scripts')
 </body>
 
 </html>

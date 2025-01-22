@@ -1,0 +1,157 @@
+
+@include('components.preview-modal')
+<x-nonauth-layout>
+    <section id="" class="py-5 my-5">
+        <div class="container">
+            <div class="col-12 header-sec">
+                <p class="heading m-0">Customise Card</p>
+                <p class="subheading">These details will be printed on the card you selected</p>
+                <form id="customiseForm" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="ps" value="{{$product->cardType->slug}}" />
+                    <input type="hidden" name="pud" value="{{$product->id}}" />
+                    <input type="hidden" value="{{$product->card_skeleton}}" id="cardSkeleton" />
+                    @if($product->cardType->slug === 'wedding-card')
+                    <div id="wedding-card-form">
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form6Example3">Bride's Name</label>
+                            <input type="text" id="brideName" class="form-control" />
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form6Example3">Groom's Name</label>
+                            <input type="text" id="groomName" class="form-control" />
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="weddingDateTime">Wedding Date & Time</label>
+                            <input type="text" id="weddingDateTime" class="form-control" />
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="weddingDateTime">Invitation Message</label>
+                            <textarea class="form-control" name="invitationMessage" rows="4"></textarea>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="weddingDateTime">Venue / Location</label>
+                            <input type="text" id="location" class="form-control" />
+                        </div>
+                    </div>
+                    @endif
+                    @if($product->cardType->slug === 'love-cards')
+                    <div class="form-group">
+                        <input type="text" id="yourName"  name="yourName" class="form-control" placeholder=" "/>
+                        <label class="form-label" for="yourName">Your Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="partnerName" name="partnerName" class="form-control" placeholder=" "/>
+                        <label class="form-label" for="partnerName">Partner's Name</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="shortMessage" rows="4" placeholder=" ">My love, every day with you feels like a celebration, but today I just want to remind you how deeply and endlessly you mean to me. You’re my heart, my happiness, my forever Valentine. ❤️</textarea>
+                        <label class="form-label" for="shortMessage">Short Message</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="message" rows="4" placeholder=" ">You are my love, my best friend. I am successful because I have you as my life partner. You are the epitome of love & I am blessed to have you in my life.</textarea>
+                        <label class="form-label" for="shortMessage">Message on card</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="weddingDateTime">Card Front Image</label>
+                        <input type="file" name="displayPicture" id="displayPicture" class="d-none"/>
+                        <button class="btn btn-tcw-move" type="button" id="displayPictureButton">Select Image</button>
+                    </div>
+                    <div class="imageContainerDp mb-4">
+                    </div>
+                    <div class="form-outline mb-2">
+                        <label class="form-label" for="weddingDateTime">Gallery Images</label>
+                        <p><small>Images uploaded are not accessible to TCW and any third party applications.</small></p>
+                        <input type="file" name="galleryImages" id="imagesPicker" class="d-none" multiple/>
+                        <button class="btn btn-tcw-move" type="button" id="imagesButton">Select Gallery Images</button>
+                    </div>
+                    <div class="imageContainer mb-4">
+                        <div class="image-square add-more d-none">
+                            <span>+ Add More</span>
+                        </div>
+                    </div>
+                    @endif
+                    @if($product->cardType->slug === 'event-cards')
+                        <div class="form-group">
+                            <input type="text" id="firstName"  name="firstName" class="form-control" placeholder=" "/>
+                            <label class="form-label" for="firstName">First Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="lastName"  name="lastName" class="form-control" placeholder=" "/>
+                            <label class="form-label" for="lastName">Last Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="compnayName"  name="compnayName" class="form-control" placeholder=" "/>
+                            <label class="form-label" for="compnayName">Company Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="tagLine"  name="tagLine" class="form-control" placeholder=" "/>
+                            <label class="form-label" for="tagLine">Tag Line</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email"  name="email" class="form-control" placeholder=" "/>
+                            <label class="form-label" for="email">Email</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="phoneNumber"  name="phoneNumber" class="form-control" placeholder=" "/>
+                            <label class="form-label" for="phoneNumber">Phone Number</label>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="weddingDateTime">Display Image</label>
+                            <input type="file" name="displayPicture" id="displayPicture" class="d-none"/>
+                            <button class="btn btn-tcw-move" type="button" id="displayPictureButton">Select Image</button>
+                        </div>
+                        <hr>
+
+                        <h4>Social Media links</h4>
+                        <div class="social-media-icons mb-4">
+                            <i class="fab fa-facebook-square" data-platform="Facebook" title="Facebook"></i>
+                            <i class="fab fa-twitter-square" data-platform="Twitter" title="Twitter"></i>
+                            <i class="fab fa-instagram-square" data-platform="Instagram" title="Instagram"></i>
+                            <i class="fab fa-linkedin" data-platform="LinkedIn" title="LinkedIn"></i>
+                            <i class="fas fa-globe" data-platform="Website" title="Website"></i>
+                        </div>
+                        <div class="social-media-inputs mt-4">
+                            <!-- Input boxes will be dynamically added here -->
+                        </div>
+                    @endif                    
+                    <!-- Submit button -->
+                     <hr>
+                    <button data-mdb-ripple-init type="button" class="btn btn-tcw-move btn-block mb-4" id="previewCard">Preview & Comfirm Order</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    @push('scripts')
+    <script>
+        if($(".social-media-icons i").length) {
+            $(".social-media-icons i").on("click", function () {
+                const platform = $(this).data("platform");
+                const existingInput = $(`[data-platform-input="${platform}"]`);
+
+                if (existingInput.length === 0) {
+                    const inputHtml = `
+                        <div class="form-group social-icons-input" data-platform-group="${platform}">
+                            <input type="text" class="form-control social-input w-90" placeholder=" " data-platform-input="${platform}" />
+                            <label class="form-label">${platform} URL/Handle</label>
+                            <i class="fas fa-times remove-input" data-platform-remove="${platform}" title="Remove"></i>
+                        </div>
+                    `;
+                    $(".social-media-inputs").append(inputHtml);
+                }
+            });
+            $(".social-media-inputs").on("click", ".remove-input", function () {
+                const platform = $(this).data("platform-remove");
+                $(`[data-platform-group="${platform}"]`).remove();
+            });
+
+            // Validate input (basic URL or handle validation)
+            $(".social-media-inputs").on("input", ".social-input", function () {
+                const value = $(this).val();
+                const isValid = value.match(/^(https?:\/\/)?([\w.-]+)+[\w-]+(\.[a-z]{2,})?(:\d+)?(\/\S*)?$/) || value.startsWith("@");
+                $(this).css("border-color", isValid ? "green" : "red");
+            });
+        }
+    </script>
+    @endpush
+</x-nonauth-layout>
