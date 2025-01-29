@@ -200,11 +200,24 @@
   top: -24px;
   height: 34vh;
 }
-.previewCardImage{
+#profileLayout #lottie-animation-birthday {
+  position: absolute;
+  top: 14rem;
+  height: 24vh;
+}
+.loveCards{
   width: 100%;
   height: auto;
   border-radius: 10px;
   background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.birthdayCards{
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  background-size: 60%;
   background-position: center center;
   background-repeat: no-repeat;
 }
@@ -219,4 +232,7 @@
 }
 .tab-pill-btn {
   border: 1px solid black;
+}
+.mt-big{
+  margin-top: 6rem !important;
 }

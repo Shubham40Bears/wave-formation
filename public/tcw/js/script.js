@@ -214,7 +214,11 @@ const generatePreview = function() {
 	let imgsrc = $(".imageContainerDp .image-square img").last().attr("src");
 	$('#demo-dp').attr('src', imgsrc);
 	$('.previewCardImage').css('background-image', 'url(' + imgsrc + ')');
-	$('.name-demo').html(`${$('#yourName').val()} & ${$('#partnerName').val()}`);
+	if($('.bdy').length) {
+		$('.name-demo').html(`${$('#recevierName').val()}`);
+	} else {
+		$('.name-demo').html(`${$('#yourName').val()} & ${$('#partnerName').val()}`);
+	}
 	let galleryImages = $(".imageContainer .image-square img")
 	$(".masonry-demo").html('')
 	galleryImages.each(function() {
@@ -312,7 +316,7 @@ $(document).on('submit','#customiseForm',function (e) {
     const formData = new FormData(form[0]);
 	const formDataObject = {};
 	formData.forEach((value, key) => {
-	formDataObject[key] = value;
+		formDataObject[key] = value;
 	});
 	localStorage.setItem('formData', JSON.stringify(formDataObject));
     const imageFiles = form.find('input[type="file"]');

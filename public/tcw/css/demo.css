@@ -12,8 +12,17 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'StretchPro';
+    src: url('https://res.cloudinary.com/shubhambhattacharya/raw/upload/v1731069557/StretchPro.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 .nexa-bold-font{
 font-family:"NexaBold";
+}
+.stretch-font{
+font-family:"StretchPro";
 }
 body {
   font-family: "Poppins", sans-serif;
@@ -570,7 +579,7 @@ z-index: 9;
         overflow-x: hidden;
         transition: 0.5s;
         padding-top: 6rem;
-        z-index: 2;
+        z-index: 3;
         background: rgba(255, 255, 255, 0.2);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
@@ -993,4 +1002,187 @@ z-index: 9;
 .no-stock{
   text-align: center;
   font-family: 'NexaLight';
+}
+.timeline {
+  position: relative;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background: #6c757d;
+  top: 0;
+  bottom: 0;
+  left: 7%;
+  margin-left: -1px;
+}
+.timeline-step {
+  position: relative;
+  margin-bottom: 30px;
+  padding-left: 50px;
+}
+.timeline-step:last-child {
+  margin-bottom: 0;
+}
+.timeline-badge {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  left: 13px;
+  background-color: #6c757d;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  line-height: 25px;
+  font-size: 12px;
+}
+.completed .timeline-badge {
+  background-color: #198754; /* Green for completed */
+}
+.completed .timeline-content {
+  color: #198754;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.ticker-div {
+  position: fixed;
+  top: 8vh;
+  z-index: 2;
+  width: 100%;
+  overflow: hidden; /* Ensures content doesn't spill outside */
+  background: #8E44AD;
+}
+
+.ticker-link {
+  display: inline-block; /* Ensures content scrolls as a single block */
+  color: #FFC107;
+  padding: 0rem 1rem;
+  text-transform: uppercase;
+  font-size: 2rem;
+  white-space: nowrap;
+  margin-bottom: 0;
+}
+.sale-label{
+  text-orientation: upright;
+  writing-mode: vertical-lr;
+  padding: 1rem 0.5rem;
+  letter-spacing: 0.4rem;
+  font-family: 'NexaLight';
+  box-shadow: 1px 3px 3px 2px #00000052;
+}
+
+
+/* ribbon */
+
+
+/* common */
+.ribbon {
+  width: 6rem;
+  height: 7rem;
+  overflow: hidden;
+  position: absolute;
+}
+.ribbon::before,
+.ribbon::after {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  display: block;
+  border: 3px solid #8E44AD;
+}
+.ribbon span {
+  position: absolute;
+  display: block;
+  width: 13rem;
+  padding: 5px 0;
+  background-color: #8E44AD;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+}
+.ribbon-top-right {
+  top: 0px;
+  right: -3px;
+}
+.ribbon-top-right::before,
+.ribbon-top-right::after {
+  border-top-color: transparent;
+  border-right-color: transparent;
+}
+.ribbon-top-right::before {
+  top: 0;
+  left: 0;
+}
+.ribbon-top-right::after {
+  right: 0;
+  bottom: 1rem;
+}
+.ribbon-top-right span {
+  left: -42px;
+  top: 22px;
+  transform: rotate(45deg);
+  color: #FFC107;
+  text-align: center;
+  text-transform: uppercase;
+}
+.submenu-item{
+  position: absolute;
+  width: 100%;
+  background: white;
+  bottom: 0;
+  transition: 0.5s;
+  border-top-right-radius: 26px;
+  border-top-left-radius: 27px;
+  height: 0;
+  overflow: hidden;
+  box-shadow: 6px -2px 12px -1px #00000047;
+}
+
+.submenu-item.active{
+  height: 35vh;
+  overflow: scroll;
+}
+.menu-list{
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+.divider{
+  width: 5rem;
+  height: 0.3rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  margin: 0.6rem auto;
+}
+.badge-tcw {
+  font-family: NexaLight;
+  border: 1px solid black;
+  font-size: 1rem;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  background: black;
+  color: white;
+  margin: 0.2rem;
+}
+.cat-menu-title{
+  text-align: center;
+  margin-bottom: 0;
+  font-family: NexaBold;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+.breadcrumb a{
+  color: grey;
+}
+.breadcrumb{
+  border-radius: 0;
+}
+.breadcrumb a.active{
+  color: black;
 }

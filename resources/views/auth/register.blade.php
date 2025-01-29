@@ -46,7 +46,7 @@
                             {{ $errors->first('recaptcha') }}
                         </div>
                     @endif
-                    <div class="flex items-center justify-end mt-4">
+                    <div class="d-flex align-items-center justify-content-center mt-4 flex-column"">
                         <x-primary-button class="ms-4 btn-tcw">
                             {{ __('Register') }}
                         </x-primary-button>

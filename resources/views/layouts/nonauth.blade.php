@@ -1,9 +1,28 @@
+@props([
+    'title' => 'The Connect Wave | Where every Connection Counts',
+    'image' => 'https://res.cloudinary.com/shubhambhattacharya/image/upload/v1737799590/tcw_-_og_images_lpgrox.png',
+    'description' => "Select any Valentine's Day love card at flat INR 999. NO HIDDEN CHARGES | FREE SHIPPING",
+    'url' => 'url()->current()'
+    
+])
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ config('app.name', 'The Connect Wave') }}</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('tcw/images/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('tcw/images/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('tcw/images/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{asset('tcw/images/site.webmanifest')}}">
+    <title>{{$title}}</title>
+    <meta property="og:title" content="{{$title}}">
+    <meta property="og:description" content="{{$description}}">
+    <meta property="og:image" content="{{$image}}">
+    <meta property="og:url" content="{{$url}}">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="theconnectwave.com">
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
@@ -15,7 +34,7 @@
 
 <!-- Fixed Header -->
 <nav class="navbar navbar-expand-lg navbar-light no-bg fixed-top">
-    <a class="navbar-brand" href="#"><img src="{{asset('theme_tcw/assets/img/logos/logo.png')}}" class="d-inline-block align-top img-fluid" alt="Logo"></a>
+    <a class="navbar-brand" href="/"><img src="{{asset('theme_tcw/assets/img/logos/logo.png')}}" class="d-inline-block align-top img-fluid" alt="Logo"></a>
     <button class="navbar-toggler open-drawer" type="button">
         <i class="fas fa-stream"></i>
     </button>
@@ -31,12 +50,16 @@
         <a href="{{route('about')}}">About</a>
         <i class="fas fa-long-arrow-alt-right"></i>
     </div>
-    <div class="menu_item">
-        <a href="{{route('shop')}}">Shop</a>
+    <div class="menu_item submenu-enable" data-toggle="shop">
+        <a href="javascript:void(0)">Shop</a>
         <i class="fas fa-long-arrow-alt-right"></i>
     </div>
     <div class="menu_item">
         <a href="{{route('shop.checkout')}}">Cart</a>
+        <i class="fas fa-long-arrow-alt-right"></i>
+    </div>
+    <div class="menu_item">
+        <a href="{{route('track')}}">Track Order</a>
         <i class="fas fa-long-arrow-alt-right"></i>
     </div>
     <div class="menu_item">
@@ -46,6 +69,15 @@
     <div class="bottom_menu">
         <a href="/register" class="btn btn-tcw-grad mb-2">Register</a>
         <a href="/login" class="btn btn-tcw">Login</a>
+    </div>
+    <div class="submenu-item shop-submenu">
+        <div class="divider"></div>
+        <p class="cat-menu-title">Shop by Category</p>
+        <div class="menu-list">
+            @foreach($cardTypes as $cardType)
+                <a href="{{ route('shop.category', ['ct_slug' => $cardType->slug]) }}" class="badge badge-primary badge-tcw">{{$cardType->name}}</a>
+            @endforeach
+        </div>
     </div>
 </div>
 <main>
@@ -61,9 +93,8 @@
             <h5 class="text-uppercase">Corporate Address</h5>
             <ul class="list-unstyled mb-0">
                 <li>
-                    B 701, Treasure Island Socitey, <br/>
-                    Pimple Saudagar, Pune.
-                    Pin Code: 411027
+                    Third Floor, TF-112A/TF-112B, Vitthal Malya Road,
+                    UB City, Bengaluru, Karnataka 560001
                 </li>
             </ul>
         </div>
@@ -126,6 +157,10 @@
         }
     }
     document.querySelector('.open-drawer').addEventListener('click', toggleDrawer);
+    $(document).on('click','.submenu-enable', function(){
+        let targetMenu = $(this).data('toggle');
+        $(`.${targetMenu}-submenu`).toggleClass('active')
+    });
 </script>
 
 </body>

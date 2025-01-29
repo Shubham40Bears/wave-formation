@@ -1,5 +1,9 @@
 <x-nonauth-layout>
 <!-- Main Content -->
+<!-- Offer button -->
+<a href="{{route('shop')}}" class="ticker-div">
+    <p class="ticker-link stretch-font">Valentines day Sale ends in <span id="time-remaining">days hours:minutes</span>. Grab your card now!!</p>
+</a>
 <section class="container-fluid hero_container position-relative">
     <p>Where every <strong>Connection</strong> counts</p>
     <h1>The Connect <br/>Wave</h1>
@@ -223,4 +227,40 @@
         <a class="btn btn-tcw z-9" href="{{route('shop')}}">GO TO SHOP</a>
     </div>
 </section>
+@push('scripts')
+<script>
+    $(document).on('ready',function() {
+        const saleEndDate = new Date('2025-02-07T23:59:59+05:30');
+        function updateTime() {
+            const now = new Date(); // Current time
+            const timeRemaining = saleEndDate - now; // Time difference in milliseconds
+
+            if (timeRemaining > 0) {
+                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+
+                // Update the text
+                $('#time-remaining').text(`${days} days ${hours} hours : ${minutes} minutes`);
+            } else {
+                // If the sale is over
+                $('#sale-message').text('Valentine\'s Day Sale has ended. Stay tuned for more offers!');
+            }
+        }
+        updateTime();
+        setInterval(updateTime, 60000);
+        let flag = 0;
+        const elemW = $('.ticker-link').get(0).offsetWidth;
+        const parentW = $('.ticker-link').get(0).parentElement.offsetWidth;
+        setInterval(() => { 
+            $('.ticker-link').css('margin-left', --flag+'px')
+    
+            if (elemW == -flag) { 
+                flag = parentW; 
+            } 
+        }, 10);
+
+    });
+</script>
+@endpush
 </x-nonauth-layout>

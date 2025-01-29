@@ -10,15 +10,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('tcw/images/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('tcw/images/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('tcw/images/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{asset('tcw/images/site.webmanifest')}}">
     <title>{{ $title ?? 'The Connect Wave' }}</title>
     <!-- Meta Tags -->
-<meta property="og:title" content="{{$title}}">
-<meta property="og:description" content="{{$description}}">
-<meta property="og:image" content="{{$image}}">
-<meta property="og:url" content="{{$url}}">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="theconnectwave.com">
+    <meta property="og:title" content="{{$title}}">
+    <meta property="og:description" content="{{$description}}">
+    <meta property="og:image" content="{{$image}}">
+    <meta property="og:url" content="{{$url}}">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="theconnectwave.com">
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">

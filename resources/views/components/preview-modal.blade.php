@@ -20,7 +20,7 @@
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane previewPane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                         <div>
-                            <img src=""  class="previewCardImage"/>
+                            <img src=""  class="previewCardImage {{$product->cardType->slug === 'birthday-cards' ? 'birthdayCards' : 'loveCards'}}"/>
                         </div>
                     </div>
                     <div class="tab-pane previewPane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
@@ -33,9 +33,13 @@
                                             <div class="card p-3 py-4 mb-5">
                                                 <div class="text-center">
                                                     <img src="" class="rounded-circle profile-img" id="demo-dp">
-                                                    <h3 class="mt-3 name-demo">Your Name & Partner's Name</h3>
+                                                    <h3 class="name-demo {{$product->cardType->slug === 'birthday-cards' ? 'mt-big' : 'mt-3'}}">Your Name & Partner's Name</h3>
                                                     <small class="mt-4">My love, every day with you feels like a celebration, but today I just want to remind you how deeply and endlessly you mean to me. You’re my heart, my happiness, my forever Valentine. ❤️</small>
-                                                    <div id="lottie-animation"></div>
+                                                    @if($product->cardType->slug === 'birthday-cards')
+                                                        <div id="lottie-animation-birthday"></div>
+                                                    @else
+                                                        <div id="lottie-animation"></div>
+                                                    @endif
                                                     <hr class="line">
                                                     
                                                     <div class="masonry masonry-demo">

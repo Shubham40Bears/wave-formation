@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
@@ -35,12 +36,14 @@ Route::get('/privacy-policy', [PageController::class, 'privacy'])->name('privacy
 
 Route::get('/vcf/{profile_code}', [VcfCardController::class, 'show']);
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
+Route::get('/shop/category/{ct_slug}', [ShopController::class, 'getByCardType'])->name('shop.category');
 Route::get('/p/d/{product_slug}', [ShopController::class, 'productDetails'])->name('shop.details');
 Route::get('/p/c/{product_slug}', [ShopController::class, 'customiseCard'])->name('shop.product.custom');
 Route::get('/checkout', [ShopController::class, 'checkout'])->name('shop.checkout');
 Route::post('/checkout', [ShopController::class, 'checkoutSave'])->name('shop.checkoutSave');
 Route::post('/generate-order', [ShopController::class, 'generateOrder'])->name('generateOrder');
 Route::get('/thankyou/{order_id}', [ShopController::class, 'thankyou'])->name('thankyou');
+Route::get('/track-order/{order_id?}', [OrderController::class, 'track'])->name('track');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashobard');

@@ -16,11 +16,9 @@
                     <h1>Thank You !</h1>
                     <p>We've received your order for <strong>{{$order->product->name}}</strong> with order id: <strong>{{$order->order_id}}</strong> and starting to process it.</p>
                     <p>Your payment id for this order is <strong>{{$order->payments()->first()->razorpay_payment_id}}</strong></p>
-                    <p>You can track your order by clicking <a>here</a>.</p>
+                    <p>You can track your order by clicking <strong><a href="{{route('track', ['order_id' => $order->order_id])}}" target="_blank">here</a></strong>.</p>
                     <p>We have sent you an email with the order and tracking details</p>
                     <p>For any queries write to us at <a href="mailto: support@theconnectwave.com">support@theconnectwave.com</a> or call us at <a href="tel:+918208935473">+91 820 893 5473</a></p>
-                    <button class="btn btn-outline-success">Login</button>
-                    <button class="btn btn-outline-success">Track without Login</button>
                 </div>
             </div>
         </div>

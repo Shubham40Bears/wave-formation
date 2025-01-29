@@ -1,17 +1,18 @@
-<x-nonauth-layout>
+<x-nonauth-layout :image="'https://res.cloudinary.com/shubhambhattacharya/image/upload/'.$product->images[0]"
+:title="$product->name" :description="$product->description">
     <section id="" class="py-5 my-5">
         <div class="container">
 		<div class="card single-prod-card">
 			<div class="container-fliud">
 				<div class="wrapper row">
 					<div class="preview col-md-6">
-						
 						<div class="preview-pic tab-content">
                           @foreach($product->images as $images)
                             <div class="tab-pane {{ $loop->first ? 'active' : '' }}" id="pic-{{ $loop->index + 1 }}"><img src="https://res.cloudinary.com/shubhambhattacharya/image/upload/{{$images}}" /></div>
                           @endforeach   
 						</div>
 						<ul class="preview-thumbnail nav nav-tabs">
+							
                           @foreach($product->images as $images)
                                 <li class="{{ $loop->first ? 'active' : '' }}"><a data-target="#pic-{{ $loop->index + 1 }}" data-toggle="tab"><img src="https://res.cloudinary.com/shubhambhattacharya/image/upload/w_150,h_150,c_thumb/{{$images}}" /></a></li>
                             @endforeach

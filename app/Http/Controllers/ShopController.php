@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Mail\OrderConfirmation;
+use App\Models\CardType;
 use App\Models\Order;
+use App\Models\OrderStatus;
 use App\Models\Product;
 use App\Models\RazorpayResponse;
 use App\Models\User;
@@ -19,9 +21,18 @@ class ShopController extends Controller
     public function index(){
         // Fetch paginated products
         $products = Product::orderBy('updated_at', 'DESC')->paginate(10);
+        // dd($products);
 
         // Return the view with paginated products
         return view('shop.shop', compact('products'));
+    }
+    public function getByCardType($cardTypeSlug){
+        $cardType = CardType::where('slug', $cardTypeSlug)->firstOrFail();
+
+        $products = Product::where('card_type_id', $cardType->id)
+            ->orderBy('updated_at', 'DESC')
+            ->paginate(10);
+        return view('shop.shop', compact('products','cardType'));
     }
     public function productDetails(Request $request, $product_slug){
         // Fetch paginated products
@@ -89,6 +100,14 @@ class ShopController extends Controller
         $paymentData->razorpay_signature = $rzpData->razorpay_signature;
         $paymentData->response_data = $rzpData;
         $paymentData->save();
+
+        // Save order status as processing
+        OrderStatus::create([
+            'order_id' => $order->id,
+            'status' => Order::STATUS_PROCESSING,
+            'remarks' => 'Order has been created and is being processed.',
+            'status_updated_at' => now(),
+        ]);
 
         Mail::to($user->email)->send(new OrderConfirmation($order));
 

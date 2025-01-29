@@ -150,10 +150,10 @@
             <tbody>
               <tr>
                 <td style="padding: 10px; border: 1px solid #ddd;">{{$product->name}}</td>
-                <td style="padding: 10px; border: 1px solid #ddd;">{{$order->order_id}}</td>
                 <td style="padding: 10px; border: 1px solid #ddd;">{{$order->created_at->format('d/m/Y')}}</td>
                 <td style="padding: 10px; border: 1px solid #ddd;">₹{{$order->amount}}</td>
                 <td style="padding: 10px; border: 1px solid #ddd;">{{$order->payments()->first()->razorpay_payment_id}}</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">{{$order->order_id}}</td>
               </tr>
             </tbody>
           </table>
@@ -162,7 +162,7 @@
             <tr style="margin: 0;padding: 0;font-size: 100%;font-family: 'Avenir Next', &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;line-height: 1.65;">
             <td align="left" style="margin: 0;padding: 0;font-size: 100%;font-family: 'Avenir Next', &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;line-height: 1.65;">
                 <p style="margin: 0;padding: 0;font-size: 16px;font-family: 'Avenir Next', &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;line-height: 1.65;font-weight: normal;margin-bottom: 20px;">
-                    Meanwhile you can click <strong><a target="_blank" href="https://wa.me/+918208935473">here</a></strong> to contact us on WhatsApp. Or use this <strong><a target="_blank" href="">tracking link</a></strong> to track your order anytime.
+                    Meanwhile you can click <strong><a target="_blank" href="https://wa.me/+918208935473">here</a></strong> to contact us on WhatsApp. Or use this <strong><a target="_blank" href="{{route('track', ['order_id' => $order->order_id])}}">tracking link</a></strong> to track your order anytime.
                         </p>
                 <p style="margin: 0;padding: 0;font-size: 16px;font-family: 'Avenir Next', &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;line-height: 1.65;font-weight: normal;margin-bottom: 20px;">
             Please note that we are alailable round the clock and you can reach out to us at <a href="tel:+918208935473">+91-820 893 5473</a> or email us at <a href="mailto:support@theconnectwave.com">support@theconnectwave.com</a>

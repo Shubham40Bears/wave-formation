@@ -4,6 +4,13 @@
         <p class="heading m-0">shop</p>
         <p class="subheading">shop from our list of premium products.</p>
     </div>
+    <div class="col-12 breadcrumb">
+       <p class="text-center m-0"> <a href="/">Home</a> > <a href="{{route('shop')}}">Shop</a> 
+        @if(isset($cardType))
+            > <a href="javascript:void(0)" class="active">{{$cardType->name}}</a>
+        @endif
+       </p>
+    </div>
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 row-cols-xl-3 justify-content-center">
             @foreach($products as $product)
@@ -13,6 +20,13 @@
                         <div class="sold-out-label position-absolute top-0 start-50 translate-middle-x bg-danger text-white py-1 px-3 rounded-3">
                             Sold Out
                         </div>
+                    @else
+                        @if($product->sales_price)
+                            <!-- <div class="position-absolute top-0 start-50 translate-middle-x bg-danger text-white sale-label">SALE</div> -->
+                            <div class="box">
+                                <div class="ribbon ribbon-top-right"><span>sale</span></div>
+                            </div>
+                        @endif
                     @endif
                     <!-- Product images-->
                      <div class="product-images d-flex">

@@ -36,40 +36,73 @@
                     </div>
                     @endif
                     @if($product->cardType->slug === 'love-cards')
-                    <div class="form-group">
-                        <input type="text" id="yourName"  name="yourName" class="form-control" placeholder=" "/>
-                        <label class="form-label" for="yourName">Your Name</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="partnerName" name="partnerName" class="form-control" placeholder=" "/>
-                        <label class="form-label" for="partnerName">Partner's Name</label>
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" name="shortMessage" rows="4" placeholder=" ">My love, every day with you feels like a celebration, but today I just want to remind you how deeply and endlessly you mean to me. You’re my heart, my happiness, my forever Valentine. ❤️</textarea>
-                        <label class="form-label" for="shortMessage">Short Message</label>
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" name="message" rows="4" placeholder=" ">You are my love, my best friend. I am successful because I have you as my life partner. You are the epitome of love & I am blessed to have you in my life.</textarea>
-                        <label class="form-label" for="shortMessage">Message on card</label>
-                    </div>
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="weddingDateTime">Card Front Image</label>
-                        <input type="file" name="displayPicture" id="displayPicture" class="d-none"/>
-                        <button class="btn btn-tcw-move" type="button" id="displayPictureButton">Select Image</button>
-                    </div>
-                    <div class="imageContainerDp mb-4">
-                    </div>
-                    <div class="form-outline mb-2">
-                        <label class="form-label" for="weddingDateTime">Gallery Images</label>
-                        <p><small>Images uploaded are not accessible to TCW and any third party applications.</small></p>
-                        <input type="file" name="galleryImages" id="imagesPicker" class="d-none" multiple/>
-                        <button class="btn btn-tcw-move" type="button" id="imagesButton">Select Gallery Images</button>
-                    </div>
-                    <div class="imageContainer mb-4">
-                        <div class="image-square add-more d-none">
-                            <span>+ Add More</span>
+                        <div class="form-group">
+                            <input type="text" id="yourName"  name="yourName" class="form-control" placeholder=" "/>
+                            <label class="form-label" for="yourName">Your Name</label>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <input type="text" id="partnerName" name="partnerName" class="form-control" placeholder=" "/>
+                            <label class="form-label" for="partnerName">Partner's Name</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="shortMessage" rows="4" placeholder=" ">My love, every day with you feels like a celebration, but today I just want to remind you how deeply and endlessly you mean to me. You’re my heart, my happiness, my forever Valentine. ❤️</textarea>
+                            <label class="form-label" for="shortMessage">Short Message</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" rows="4" placeholder=" ">You are my love, my best friend. I am successful because I have you as my life partner. You are the epitome of love & I am blessed to have you in my life.</textarea>
+                            <label class="form-label" for="shortMessage">Message on card</label>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="weddingDateTime">Card Front Image</label>
+                            <input type="file" name="displayPicture" id="displayPicture" class="d-none"/>
+                            <button class="btn btn-tcw-move" type="button" id="displayPictureButton">Select Image</button>
+                        </div>
+                        <div class="imageContainerDp mb-4">
+                        </div>
+                        <div class="form-outline mb-2">
+                            <label class="form-label" for="weddingDateTime">Gallery Images</label>
+                            <p><small>Images uploaded are not accessible to TCW and any third party applications.</small></p>
+                            <input type="file" name="galleryImages" id="imagesPicker" class="d-none" multiple/>
+                            <button class="btn btn-tcw-move" type="button" id="imagesButton">Select Gallery Images</button>
+                        </div>
+                        <div class="imageContainer mb-4">
+                            <div class="image-square add-more d-none">
+                                <span>+ Add More</span>
+                            </div>
+                        </div>
+                    @endif
+                    @if($product->cardType->slug === 'birthday-cards')
+                        <input type="hidden" class="bdy" />
+                        <div class="form-group">
+                            <input type="text" id="recevierName"  name="recevierName" class="form-control" placeholder=" "/>
+                            <label class="form-label" for="yourName">Happy Birthday To</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="senderName" name="senderName" class="form-control" placeholder=" "/>
+                            <label class="form-label" for="partnerName">From</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" rows="4" placeholder=" ">You are my love, my best friend. I am successful because I have you as my life partner. You are the epitome of love & I am blessed to have you in my life.</textarea>
+                            <label class="form-label" for="shortMessage">Message on card</label>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="weddingDateTime">Card Front Image</label>
+                            <input type="file" name="displayPicture" id="displayPicture" class="d-none"/>
+                            <button class="btn btn-tcw-move" type="button" id="displayPictureButton">Select Image</button>
+                        </div>
+                        <div class="imageContainerDp mb-4">
+                        </div>
+                        <div class="form-outline mb-2">
+                            <label class="form-label" for="weddingDateTime">Gallery Images</label>
+                            <p><small>Images uploaded are not accessible to TCW and any third party applications.</small></p>
+                            <input type="file" name="galleryImages" id="imagesPicker" class="d-none" multiple/>
+                            <button class="btn btn-tcw-move" type="button" id="imagesButton">Select Gallery Images</button>
+                        </div>
+                        <div class="imageContainer mb-4">
+                            <div class="image-square add-more d-none">
+                                <span>+ Add More</span>
+                            </div>
+                        </div>
                     @endif
                     @if($product->cardType->slug === 'event-cards')
                         <div class="form-group">

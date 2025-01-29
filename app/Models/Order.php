@@ -22,7 +22,9 @@ class Order extends Model
     ];
     // Define the possible values for the 'status' enum
     const STATUS_PROCESSING = 'processing';
-    const STATUS_COMPLETED = 'completed';
+    const STATUS_PACKED = 'packed';
+    const STATUS_SHIPPED = 'shipped';
+    const STATUS_DELIVERY = 'outfordelivery';
     const STATUS_CANCELLED = 'cancelled';
     const STATUS_FAILED = 'failed';
 
@@ -31,6 +33,15 @@ class Order extends Model
      *
      * @return string
      */
+
+     protected static function booted() {
+        static::updated(function (Order $order) {
+            if ($order->isDirty('status')) {
+                // Call your controller method here
+                app(\App\Http\Controllers\OrderController::class)->updateOrderStatus($order, $order->status);
+            }
+        });
+    }
     public static function generateOrderId()
     {
         $prefix = 'TCW';
@@ -64,7 +75,7 @@ class Order extends Model
     public function setStatusAttribute($value)
     {
         // Ensure the status is one of the predefined enum values
-        if (!in_array($value, [self::STATUS_PROCESSING, self::STATUS_COMPLETED, self::STATUS_CANCELLED, self::STATUS_FAILED])) {
+        if (!in_array($value, [self::STATUS_PROCESSING, self::STATUS_PACKED, self::STATUS_FAILED, self::STATUS_DELIVERY, self::STATUS_CANCELLED, self::STATUS_SHIPPED])) {
             throw new \InvalidArgumentException("Invalid status value.");
         }
         $this->attributes['status'] = $value;
@@ -72,6 +83,10 @@ class Order extends Model
     public function payments()
     {
         return $this->hasMany(RazorpayResponse::class);
+    }
+    public function statuses()
+    {
+        return $this->hasMany(OrderStatus::class);
     }
 
 }
