@@ -43,10 +43,11 @@
           </ul>
 
           <form class="card p-2">
+            @csrf
             <div class="input-group">
-              <input type="text" class="form-control no-border" placeholder="Promo code">
+              <input type="text" class="form-control no-border" placeholder="Promo code" name="promo">
               <div class="input-group-append">
-                <button type="button" class="btn btn-secondary">Redeem</button>
+                <button type="submit" class="btn btn-secondary">Redeem</button>
               </div>
             </div>
           </form>

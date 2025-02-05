@@ -51,6 +51,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/card-design/{type}', [CardController::class, 'index'])->name('card.design');
+    Route::get('/card-update/{order_id}', [CardController::class, 'updateCard'])->name('card.update');
 });
 
 require __DIR__.'/auth.php';

@@ -1,72 +1,7 @@
 <x-app-layout>
 <div class="container-fluid py-4">
       <div class="row">
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Connections</p>
-                    <h5 class="font-weight-bolder mb-0">
-                      5
-                      <!-- <span class="text-success text-sm font-weight-bolder">Connections made</span> -->
-                    </h5>
-                  </div>
-                </div>
-                <div class="col-4 text-end">
-                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                    <i class="fa fa-link text-lg opacity-10" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Connections</p>
-                    <h5 class="font-weight-bolder mb-0">
-                      2,300
-                      <!-- <span class="text-success text-sm font-weight-bolder">Total Connections</span> -->
-                    </h5>
-                  </div>
-                </div>
-                <div class="col-4 text-end">
-                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                    <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Plan Selected</p>
-                    <h5 class="font-weight-bolder mb-0">
-                      <span class="text-primary text-sm font-weight-bolder">TCW Business Card</span>
-                    </h5>
-                  </div>
-                </div>
-                <div class="col-4 text-end">
-                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                    <i class="fas fa-money-check text-lg opacity-10" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6">
+        <div class="col-xl-3 col-sm-4 mb-xl-0 mb-4">
           <div class="card">
             <div class="card-body p-3">
               <div class="row">
@@ -74,14 +9,14 @@
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Cards</p>
                     <h5 class="font-weight-bolder mb-0">
-                      1
-                      <span class="text-primary text-sm font-weight-bolder"><i class="fas fa-info-circle"></i></span>
+                      {{$orders->count()}}
+                      <span class="text-success text-sm font-weight-bolder">Cards</span>
                     </h5>
                   </div>
                 </div>
                 <div class="col-4 text-end">
                   <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                    <i class="fas fa-id-card-alt text-lg opacity-10" aria-hidden="true"></i>
+                    <i class="ni ni-credit-card text-lg opacity-10" aria-hidden="true"></i>
                   </div>
                 </div>
               </div>
@@ -90,64 +25,45 @@
         </div>
       </div>
       <div class="row mt-4">
-        <div class="col-lg-6 mb-lg-0 mb-4">
-          <div class="card">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="d-flex flex-column h-100">
-                    <p class="mb-1 pt-2 text-bold">NFC & QR Enabled</p>
-                    <h5 class="font-weight-bolder">Smart Business Card</h5>
-                    <p class="mb-5">Ditch the Paper, Get Smart! Upgrade your network with sustainable, cost-effective NFC & QR business cards. 
-                        Save 70% by ditching paper cards and share effortlessly. A tap or scan transmits your details. 
-                        Update info on the go and track taps for insights!</p>
-                    <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="{{route('card.design','business-card')}}">
-                      Get it now
-                      <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                    </a>
+        <!-- product section starts -->
+         @foreach($orders as $order)
+          <div class="col-lg-6 mb-lg-0 mb-4">
+            <div class="card">
+              <div class="card-body p-3">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="d-flex flex-column h-100">
+                      <p class="mb-1 pt-2 text-bold">NFC & QR Enabled</p>
+                      <h5 class="font-weight-bolder">{{$order->product->name}}</h5>
+                      <p class="mb-5">{!! $order->product->description !!}</p>
+                      <a class="btn btn-outline-primary" href="{{route('card.update',['order_id' => $order->id])}}">
+                        Edit
+                        <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                      </a>
+                      <p class="m-0 text-center"><small>You can add more images to the card and you will be able to see it in next tap.</small></p>
+                    </div>
                   </div>
-                </div>
-                <div class="col-lg-6 ms-auto text-center mt-5 mt-lg-0">
-                  <div class="bg-gradient-primary border-radius-lg h-100">
-                    <img src="{{asset('theme_tcw/assets/img/shapes/waves-white.svg')}}" class="position-absolute h-100 w-50 top-0 d-lg-block d-none" alt="waves">
-                    <div class="position-relative d-flex align-items-center justify-content-center h-100">
-                      <img class="w-100 position-relative z-index-2" src=".{{asset('theme_tcw/assets/img/illustrations/card.png')}}" alt="rocket">
+                  @php
+                    $orderData = json_decode($order->order_data)
+                  @endphp
+                  <div class="col-lg-6 ms-auto text-center mt-5 mt-lg-0">
+                    <div class="bg-gradient-primary border-radius-lg h-100 {{$order->product->cardType->slug}}" style="
+    background-image: url('{{$orderData->displayPicture[0]}}');
+    background-position: center;
+">
+                      <!-- <img src="{{asset('theme_tcw/assets/img/shapes/waves-white.svg')}}" class="position-absolute h-100 w-50 top-0 d-lg-block d-none" alt="waves"> -->
+                      <div class="position-relative d-flex align-items-center justify-content-center h-100">
+                        <img class="w-100 position-relative z-index-2" src="https://res.cloudinary.com/shubhambhattacharya/image/upload/{{$order->product->card_skeleton}}" alt="rocket">
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-6 mb-lg-0 mb-4">
-          <div class="card">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="d-flex flex-column h-100">
-                    <p class="mb-1 pt-2 text-bold">NFC & QR Enabled</p>
-                    <h5 class="font-weight-bolder">Smart Influencer's Card</h5>
-                    <p class="mb-5">Level up your influence! Switch to sleek NFC & QR influencer card. 
-                        Share your social media profiles with a tap. No more typos, just instant connections for your followers. 
-                        Get smart, get connected, and grow your audience! </p>
-                    <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
-                      Get it now
-                      <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-lg-6 ms-auto text-center mt-5 mt-lg-0">
-                  <div class="bg-gradient-primary border-radius-lg h-100">
-                    <img src="{{asset('theme_tcw/assets/img/shapes/waves-white.svg')}}" class="position-absolute h-100 w-50 top-0 d-lg-block d-none" alt="waves">
-                    <div class="position-relative d-flex align-items-center justify-content-center h-100">
-                      <img class="w-100 position-relative z-index-2" src=".{{asset('theme_tcw/assets/img/illustrations/card.png')}}" alt="rocket">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+         @endforeach
+        
+        <!-- product section ends -->
       </div>
     <div class="row mt-4">
         <div class="col-lg-8">

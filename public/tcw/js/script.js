@@ -210,8 +210,18 @@ $(document).ready(function () {
       });
 });
 const generatePreview = function() {
+	toastr.options = {
+		"closeButton": true,
+		"progressBar": true,
+		"positionClass": "toast-top-right",
+		"timeOut": "3000",
+	};
 	$('.previewCardImage').attr('src',`https://res.cloudinary.com/shubhambhattacharya/image/upload/${$('#cardSkeleton').val()}`);
 	let imgsrc = $(".imageContainerDp .image-square img").last().attr("src");
+	if (!imgsrc) {
+        toastr.error('Please Select Image to be printed on card.', 'Error');
+        return;
+    }
 	$('#demo-dp').attr('src', imgsrc);
 	$('.previewCardImage').css('background-image', 'url(' + imgsrc + ')');
 	if($('.bdy').length) {
@@ -220,6 +230,10 @@ const generatePreview = function() {
 		$('.name-demo').html(`${$('#yourName').val()} & ${$('#partnerName').val()}`);
 	}
 	let galleryImages = $(".imageContainer .image-square img")
+	if (galleryImages.length === 0) {
+        toastr.error('Please Select Gallery images to be displayed when card is tapped or scanned.', 'Error');
+        return;
+    }
 	$(".masonry-demo").html('')
 	galleryImages.each(function() {
 		const imageGallery = `<div class="item">
@@ -227,6 +241,7 @@ const generatePreview = function() {
                                 </div>`
 		$(".masonry-demo").append(imageGallery)
 	});
+	$('#previewModal').show();
 }
 $(document).on('click','#imagesButton', function(){
 	$('#imagesPicker').click()
@@ -239,7 +254,6 @@ $(document).on('click','#displayPictureButton', function(){
 });
 $(document).on('click','#previewCard', function(){
 	generatePreview();
-	$('#previewModal').show();
 });
 $(document).on('click','#closePreview', function(){
 	$('#previewModal').hide()

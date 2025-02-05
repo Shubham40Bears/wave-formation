@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PromoCodeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/track/order/{orderId}', [OrderController::class, 'trackOrder'])->name('trackOrder');
+Route::post('/apply-promo', [PromoCodeController::class, 'applyCode']);
