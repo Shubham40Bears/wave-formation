@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CardController;
+use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
@@ -28,7 +29,7 @@ Route::get('/profile/1234', function () {
 });
 Route::get('/about-us', [PageController::class, 'about'])->name('about');
 Route::get('/contact-us', [PageController::class, 'contact'])->name('contact');
-
+Route::post('/contact', [ContactFormController::class, 'store'])->name('contactSave');
 Route::get('/terms-and-condition', [PageController::class, 'terms'])->name('terms');
 Route::get('/cancellation-refund-policy', [PageController::class, 'cancellation'])->name('cancellation');
 Route::get('/shipping-and-delivery', [PageController::class, 'shipping'])->name('shipping');
