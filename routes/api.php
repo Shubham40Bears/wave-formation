@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PromoCodeController;
+use App\Http\Controllers\VcfCardController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

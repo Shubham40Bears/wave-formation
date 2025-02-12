@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\OrderStatus;
 use App\Models\VcfProfileData;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
@@ -90,7 +91,9 @@ class OrderController extends Controller
                     'user_id' => $order->user_id,
                     'sns_links' => '',
                     'vcf' => 0,
-                    'contact_number' => 0
+                    'contact_number' => 0,
+                    'secret_mode' => $orderData->passwordCode ? true : false,
+                    'secret_code' => $orderData->passwordCode ? Hash::make($orderData->passwordCode) : NULL
                 ]);
             } catch (\Exception $e) {
                 Log::error('Error saving VcfProfileData:', [

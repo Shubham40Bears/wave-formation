@@ -26,6 +26,8 @@ class VcfProfileData extends Model
         'user_id',              // Foreign key for the user
         'vcf',                  // ID of the VCF file
         'photo_url',            // URL of the profile photo
+        'secret_mode',
+        'secret_code'
     ];
 
     protected $casts = [

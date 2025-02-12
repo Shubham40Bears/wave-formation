@@ -52,6 +52,11 @@
                             <textarea class="form-control" name="message" rows="4" placeholder=" ">You are my love, my best friend. I am successful because I have you as my life partner. You are the epitome of love & I am blessed to have you in my life.</textarea>
                             <label class="form-label" for="shortMessage">Message on card</label>
                         </div>
+                        <div class="custom-control custom-switch mb-4">
+                            <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                            <label class="custom-control-label" for="customSwitch1">Secret Mode</label>
+                        </div>
+                        <div class="secure_code"></div>
                         <div class="form-outline mb-4">
                             <label class="form-label" for="weddingDateTime">Card Front Image</label>
                             <input type="file" name="displayPicture" id="displayPicture" class="d-none"/>
@@ -185,6 +190,35 @@
                 $(this).css("border-color", isValid ? "green" : "red");
             });
         }
+        $(document).ready(function() {
+            $('#customSwitch1').on('change', function() {
+                if ($(this).prop('checked')) {
+                    $('.secure_code').html(`
+                        <div class="form-group position-relative">
+                            <input type="password" id="passwordCode" name="passwordCode" class="form-control" placeholder=" "/>
+                            <label class="form-label" for="passwordCode">Set a password</label>
+                            <span class="toggle-password" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+                                <i class="fa fa-eye"></i>
+                            </span>
+                        </div>
+                    `);
+                } else {
+                    $('.secure_code').empty();
+                }
+            });
+            $(document).on('click', '.toggle-password', function() {
+                let input = $('#passwordCode');
+                let icon = $(this).find('i');
+
+                if (input.attr('type') === 'password') {
+                    input.attr('type', 'text');
+                    icon.removeClass('fa-eye').addClass('fa-eye-slash');
+                } else {
+                    input.attr('type', 'password');
+                    icon.removeClass('fa-eye-slash').addClass('fa-eye');
+                }
+            });
+        });
     </script>
     @endpush
 </x-nonauth-layout>

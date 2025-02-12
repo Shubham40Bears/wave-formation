@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\VcfCard;
 use App\Models\VcfProfileData;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class VcfCardController extends Controller
 {
@@ -15,7 +17,10 @@ class VcfCardController extends Controller
         if($vcfCard->type === 'business') {
             $vcfData = $this->generateVcf($vcfCard->toArray());
         }
-        // dd($vcfCard);
+        if($vcfCard->secret_mode && !Session::has('secret_verified')){
+            return view('vcf_profiles.secret', compact('profile_code'));
+        }
+        Session::forget('secret_verified');
         return view('vcf_profiles.'.$vcfCard->card_type, compact('vcfCard','vcfData'));
     }
 
@@ -73,6 +78,16 @@ class VcfCardController extends Controller
         $vcf .= "END:VCARD";
 
         return $vcf;
+    }
+
+    public function unlock(Request $request, $vcf_code){
+        $vcfCard = VcfProfileData::where('profile_code', $vcf_code)->firstOrFail();
+        if(Hash::check($request->secretCode, $vcfCard->secret_code)){
+            Session::put('secret_verified', true);
+            return response()->json(['message' => 'Secret code matched'], 200);
+        } else {
+            return response()->json(['message' => 'Secret code mismatch'], 500);
+        }
     }
 
 }

@@ -45,6 +45,7 @@ Route::post('/checkout', [ShopController::class, 'checkoutSave'])->name('shop.ch
 Route::post('/generate-order', [ShopController::class, 'generateOrder'])->name('generateOrder');
 Route::get('/thankyou/{order_id}', [ShopController::class, 'thankyou'])->name('thankyou');
 Route::get('/track-order/{order_id?}', [OrderController::class, 'track'])->name('track');
+Route::post('/unlock/{vcf_code}', [VcfCardController::class, 'unlock'])->name('unlock');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashobard');
