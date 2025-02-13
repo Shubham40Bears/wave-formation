@@ -1186,3 +1186,6 @@ z-index: 9;
 .breadcrumb a.active{
   color: black;
 }
+.text-dark{
+  color: black;
+}

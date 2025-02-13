@@ -15,6 +15,7 @@
         <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 row-cols-xl-3 justify-content-center">
             @foreach($products as $product)
             <div class="col mb-5">
+                <a href="{{route('shop.details',['product_slug' => $product->slug])}}">
                 <div class="card h-100 prod-card">
                     @if($product->stock === 0)
                         <div class="sold-out-label position-absolute top-0 start-50 translate-middle-x bg-danger text-white py-1 px-3 rounded-3">
@@ -38,10 +39,10 @@
                     <div class="card-body p-4">
                         <div class="text-center">
                             <!-- Product name-->
-                            <h5 class="fw-bolder">{{$product->name}}</h5>
-                            <small>{{$product->description}}</small>
+                            <h5 class="fw-bolder text-dark">{{$product->name}}</h5>
+                            <small class="text-dark">{{$product->description}}</small>
                             <br/>
-                            <small>Material Type: {{$product->category->name}}</small>
+                            <small class="text-dark">Material Type: {{$product->category->name}}</small>
                             <!-- Product price-->
                             <!-- Product price with regular price struck out and sale price displayed-->
                             @if($product->sales_price) 
@@ -65,6 +66,7 @@
                         <p class="no-stock">Out of stock</p>
                     @endif
                 </div>
+            </a>
             </div>
             @endforeach
         </div>
