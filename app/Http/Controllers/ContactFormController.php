@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\ContactForm;
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactFormRequest;
+use App\Mail\ContactFormMail;
+use Illuminate\Support\Facades\Mail;
+
 class ContactFormController extends Controller
 {
     /**
@@ -29,7 +32,8 @@ class ContactFormController extends Controller
     public function store(ContactFormRequest $request)
     {
         $contactForm = ContactForm::create($request->validated());
-
+        Mail::to($request->email)->send(new ContactFormMail($contactForm, 'The Connect Wave | Thank you for contacting'));
+        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactFormMail($contactForm, 'New Enquiry Received'));
         return response()->json([
             'message' => 'Your message has been submitted successfully!',
             'data' => $contactForm

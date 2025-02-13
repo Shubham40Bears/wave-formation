@@ -52,6 +52,23 @@
     <script>
         $(document).on('submit','#contactForm',function(e){
             e.preventDefault();
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-bottom-full-width",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+                }
             let form = $(this);
             let submitButton = form.find("button[type='submit']");
             let inputs = form.find("input, select, textarea");
@@ -68,16 +85,13 @@
                 message: form.find("textarea[name='message']").val(),
                 reason: form.find("select[name='contactReason']").val(),
             };
-            console.log(formData);
-            return;
-
             axios.post(form.attr("action"), formData)
                 .then(response => {
-                    alert("Message sent successfully!");
+                    toastr.success('Message sent successfully, please check your email for details', 'Yay!');
                     form[0].reset(); // Reset the form
                 })
                 .catch(error => {
-                    alert("An error occurred. Please try again.");
+                    toastr.error('Something went wrong, please try again later.', 'Oops!!');
                     console.error(error);
                 })
                 .finally(() => {
