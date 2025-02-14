@@ -14,9 +14,10 @@ class VcfCardController extends Controller
     {
         $vcfCard = VcfProfileData::where('profile_code', $profile_code)->firstOrFail();
         $vcfData = '';
-        if($vcfCard->type === 'business') {
+        if($vcfCard->card_type === 'business') {
             $vcfData = $this->generateVcf($vcfCard->toArray());
         }
+        // dd($vcfData);
         if($vcfCard->secret_mode && !Session::has('secret_verified')){
             return view('vcf_profiles.secret', compact('profile_code'));
         }
