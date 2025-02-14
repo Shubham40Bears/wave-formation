@@ -33,14 +33,14 @@
             const link = document.getElementById('profile_button');
             link.href = URL.createObjectURL(blob);
             link.download = "contact.vcf"; // File name for the download
-            // link.style.display = 'none';
-            // document.body.appendChild(link);
+            link.style.display = 'none';
+            document.body.appendChild(link);
             // Trigger the download
-            // link.click();
+            link.click();
 
             // Clean up after download without affecting other DOM elements
             setTimeout(() => {
-                // link.click();
+                link.click();
             }, 1000);
         });
         const shareButton = document.getElementById('share-button');
