@@ -2,7 +2,7 @@
 <!-- Main Content -->
 <!-- Offer button -->
 <a href="{{route('shop')}}" class="ticker-div">
-    <p class="ticker-link stretch-font">Valentines day Sale ends in <span id="time-remaining">days hours:minutes</span>. Grab your card now!!</p>
+    <p class="ticker-link stretch-font">New Product launch in <span id="time-remaining">days hours:minutes</span>. Stay tuned</p>
 </a>
 <section class="container-fluid hero_container position-relative">
     <p>Where every <strong>Connection</strong> counts</p>
@@ -230,7 +230,7 @@
 @push('scripts')
 <script>
     $(document).on('ready',function() {
-        const saleEndDate = new Date('2025-02-07T23:59:59+05:30');
+        const saleEndDate = new Date('2025-02-15T10:00:00+05:30');
         function updateTime() {
             const now = new Date(); // Current time
             const timeRemaining = saleEndDate - now; // Time difference in milliseconds
@@ -241,7 +241,7 @@
                 const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
 
                 // Update the text
-                $('#time-remaining').text(`${days} days ${hours} hours : ${minutes} minutes`);
+                $('#time-remaining').text(`${hours} hours : ${minutes} minutes`);
             } else {
                 // If the sale is over
                 $('#sale-message').text('Valentine\'s Day Sale has ended. Stay tuned for more offers!');
