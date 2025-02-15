@@ -1,8 +1,8 @@
 <x-nonauth-layout>
 <!-- Main Content -->
 <!-- Offer button -->
-<a href="{{route('shop')}}" class="ticker-div">
-    <p class="ticker-link stretch-font">New Product launch in <span id="time-remaining">days hours:minutes</span>. Stay tuned</p>
+<a href="{{route('shop.category',['ct_slug' => 'breakup-cards'])}}" class="ticker-div">
+    <p class="ticker-link stretch-font">breakup cards launched. gift it today and move on!!</p>
 </a>
 <section class="container-fluid hero_container position-relative">
     <p>Where every <strong>Connection</strong> counts</p>
