@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UrlAccessLog;
 use App\Models\VcfCard;
 use App\Models\VcfProfileData;
 use Illuminate\Http\Request;
@@ -10,9 +11,28 @@ use Illuminate\Support\Facades\Session;
 
 class VcfCardController extends Controller
 {
-    public function show($profile_code)
+    public function show(Request $request, $profile_code)
     {
         $vcfCard = VcfProfileData::where('profile_code', $profile_code)->firstOrFail();
+        $url = $request->fullUrl();
+        $ipAddress = $request->ip();
+        $vcfProfileDataId = $vcfCard->id;
+        
+        $log = UrlAccessLog::where('url', $url)
+            ->where('ip_address', $ipAddress)
+            ->where('vcf_profile_data_id', $vcfProfileDataId)
+            ->first();
+
+        if ($log) {
+            $log->increment('access_count');
+        } else {
+            UrlAccessLog::create([
+                'url' => $url,
+                'ip_address' => $ipAddress,
+                'vcf_profile_data_id' => $vcfProfileDataId,
+                'access_count' => 1,
+            ]);
+        }
         $vcfData = '';
         if($vcfCard->card_type === 'business') {
             $vcfData = $this->generateVcf($vcfCard->toArray());
