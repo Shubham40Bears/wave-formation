@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'NexaLight';
+    src: url('https://res.cloudinary.com/shubhambhattacharya/raw/upload/v1718431425/NexaLight.ttf.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NexaBold';
+    src: url('https://res.cloudinary.com/shubhambhattacharya/raw/upload/v1720707645/Nexa_Bold.otf') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'StretchPro';
+    src: url('https://res.cloudinary.com/shubhambhattacharya/raw/upload/v1731069557/StretchPro.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    font-family: 'NexaLight';
+}
+.carousel-item img {
+    height: 85vh;
+    object-fit: cover;
+}
+.carousel-item{
+    position: relative;
+}
+.carousel-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #00000033;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.carousel-text .head-text {
+    font-size: 8rem;
+    color: white;
+    font-family: NexaBold;
+    text-shadow: 2px 2px 2px black;
+}
+.carousel-item .btn-lnk {
+    padding: 0.5rem 3rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+    background: black;
+    outline: none;
+    color: white;
+    box-shadow: none;
+    outline: none;
+    border: none;
+}

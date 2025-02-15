@@ -224,7 +224,7 @@ const generatePreview = function() {
     }
 	$('#demo-dp').attr('src', imgsrc);
 	$('.previewCardImage').css('background-image', 'url(' + imgsrc + ')');
-	if($('.bdy').length) {
+	if($('.bdy').length || $('.brkup').length) {
 		$('.name-demo').html(`${$('#recevierName').val()}`);
 	} else {
 		$('.name-demo').html(`${$('#yourName').val()} & ${$('#partnerName').val()}`);
@@ -241,6 +241,16 @@ const generatePreview = function() {
                                 </div>`
 		$(".masonry-demo").append(imageGallery)
 	});
+	if($('.brkup').length) {
+		setTimeout(() => {
+			const images = $(".masonry-demo img");
+			if (images.length > 0) {
+				const randomImage = images.eq(Math.floor(Math.random() * images.length));
+				$('#demo-dp').attr('src', randomImage.attr("src"));
+			}
+		}, 100);
+	}
+	$('.message_data').text($('#message').val())
 	$('#previewModal').show();
 }
 $(document).on('click','#imagesButton', function(){

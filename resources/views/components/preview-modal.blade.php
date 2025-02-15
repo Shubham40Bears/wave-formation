@@ -34,7 +34,7 @@
                                                 <div class="text-center">
                                                     <img src="" class="rounded-circle profile-img" id="demo-dp">
                                                     <h3 class="name-demo {{$product->cardType->slug === 'birthday-cards' ? 'mt-big' : 'mt-3'}}">Your Name & Partner's Name</h3>
-                                                    <small class="mt-4">My love, every day with you feels like a celebration, but today I just want to remind you how deeply and endlessly you mean to me. You’re my heart, my happiness, my forever Valentine. ❤️</small>
+                                                    <small class="mt-4 message_data">My love, every day with you feels like a celebration, but today I just want to remind you how deeply and endlessly you mean to me. You’re my heart, my happiness, my forever Valentine. ❤️</small>
                                                     @if($product->cardType->slug === 'birthday-cards')
                                                         <div id="lottie-animation-birthday"></div>
                                                     @else

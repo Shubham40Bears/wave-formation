@@ -20,10 +20,12 @@ class Product extends Model
         'description',
         'stock',
         'card_type_id',
-        'card_skeleton'
+        'card_skeleton',
+        'choice_images'
     ];
     protected $casts = [
         'images' => 'array',
+        'choice_images' => 'array',
     ];
 
     /**

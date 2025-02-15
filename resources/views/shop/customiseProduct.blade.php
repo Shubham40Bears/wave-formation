@@ -68,7 +68,7 @@
                             <label class="form-label" for="weddingDateTime">Gallery Images</label>
                             <p><small>Images uploaded are not accessible to TCW and any third party applications.</small></p>
                             <input type="file" name="galleryImages" id="imagesPicker" class="d-none" multiple/>
-                            <button class="btn btn-tcw-move" type="button" id="imagesButton">Select Gallery Images</button>
+                            <button class="btn btn-tcw-move" type="button" id="imagesButton">Select Gallery Images <i class="fa-solid fa-images"></i></button>
                         </div>
                         <div class="imageContainer mb-4">
                             <div class="image-square add-more d-none">
@@ -101,7 +101,7 @@
                             <label class="form-label" for="weddingDateTime">Gallery Images</label>
                             <p><small>Images uploaded are not accessible to TCW and any third party applications.</small></p>
                             <input type="file" name="galleryImages" id="imagesPicker" class="d-none" multiple/>
-                            <button class="btn btn-tcw-move" type="button" id="imagesButton">Select Gallery Images</button>
+                            <button class="btn btn-tcw-move" type="button" id="imagesButton">Select Gallery Images <i class="fa-solid fa-images"></i></button>
                         </div>
                         <div class="imageContainer mb-4">
                             <div class="image-square add-more d-none">
@@ -152,7 +152,80 @@
                         <div class="social-media-inputs mt-4">
                             <!-- Input boxes will be dynamically added here -->
                         </div>
-                    @endif                    
+                    @endif  
+                    @if($product->cardType->slug === 'breakup-cards')
+                    <input type="hidden" class="brkup" />
+                    <div class="form-container">
+                        <h4 class="text-center mb-4">Create Your Card</h4>
+
+                        <!-- Progress Bar -->
+                        <div class="progress mb-4">
+                            <div id="progressBar" class="progress-bar bg-dark" style="width: 20%;"></div>
+                        </div>
+
+                        <!-- Multi-Step Form -->
+                            <!-- Step 1: select image -->
+                            <div class="form-step" id="step1">
+                                <label for="to" class="form-label">Select image</label>
+                                <div class="image-scroll">
+                                    @foreach($product->choice_images as $choiceImage)
+                                        <img src="https://res.cloudinary.com/shubhambhattacharya/image/upload/w_200,h_350,c_thumb/{{$choiceImage}}" alt="Image 1" data-name="{{$choiceImage}}">
+                                    @endforeach
+                                </div>
+                                <input type="hidden" id="selectedImage" name="selected_image">
+                                <button type="button" class="btn btn-tcw-move mt-3 next-btn">Next <i class="fa-solid fa-arrow-right-long"></i></button>
+                            </div>
+                            <!-- Step 2: To -->
+                            <div class="form-step" id="step1">
+                                <label for="to" class="form-label">To</label>
+                                <input type="text" id="senderName" name="senderName" class="form-control" placeholder="Enter recipient's name">
+                                <div class="btn-cont">
+                                    <button type="button" class="btn btn-tcw-outline mt-3 prev-btn"><i class="fa-solid fa-arrow-left-long"></i></button>
+                                    <button type="button" class="btn btn-tcw-move mt-3 next-btn w-50">Next <i class="fa-solid fa-arrow-right-long"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- Step 3: From -->
+                            <div class="form-step" id="step2">
+                                <label for="from" class="form-label">From</label>
+                                <input type="text" id="recevierName" name="recevierName" class="form-control" placeholder="Your name">
+                                <div class="btn-cont">
+                                    <button type="button" class="btn btn-tcw-outline mt-3 prev-btn"><i class="fa-solid fa-arrow-left-long"></i></button>
+                                    <button type="button" class="btn btn-tcw-move mt-3 next-btn w-50">Next <i class="fa-solid fa-arrow-right-long"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- Step 4: Message -->
+                            <div class="form-step" id="step3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea id="message" name="message" class="form-control" placeholder="Write your message"></textarea>
+                                <div class="btn-cont">
+                                    <button type="button" class="btn btn-tcw-outline mt-3 prev-btn"><i class="fa-solid fa-arrow-left-long"></i></button>
+                                    <button type="button" class="btn btn-tcw-move mt-3 next-btn w-50">Next <i class="fa-solid fa-arrow-right-long"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- Step 5: Gallery Images -->
+                            <div class="form-step active" id="step4">
+                                <label for="gallery" class="form-label">Upload Images</label>
+                                <input type="file" id="imagesPicker" name="galleryImages" class="form-control d-none" multiple>
+                                <button class="btn btn-tcw-move mb-2" type="button" id="imagesButton">Select Gallery Images <i class="fa-solid fa-images"></i></button>
+                                <div class="imageContainer mb-4">
+                                    <div class="image-square add-more d-none">
+                                        <span>+ Add More</span>
+                                    </div>
+                                </div>
+                                <div class="imageContainerDp mb-4 d-none">
+                                    <div class="image-square">
+                                        <img id="randomProfileImage" src="https://res.cloudinary.com/shubhambhattacharya/image/upload/w_200,h_350,c_thumb/{{$product->choice_images[0]}}" />
+                                    </div>
+                                </div>
+                                <div class="btn-cont">
+                                    <button type="button" class="btn btn-tcw-outline mt-3 prev-btn"><i class="fa-solid fa-arrow-left-long"></i></button>
+                                </div>
+                            </div>
+                    </div>
+                    @endif                  
                     <!-- Submit button -->
                      <hr>
                     <button data-mdb-ripple-init type="button" class="btn btn-tcw-move btn-block mb-4" id="previewCard">Preview & Comfirm Order</button>
@@ -217,6 +290,60 @@
                     input.attr('type', 'password');
                     icon.removeClass('fa-eye-slash').addClass('fa-eye');
                 }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const steps = document.querySelectorAll(".form-step");
+            const nextBtns = document.querySelectorAll(".next-btn");
+            const prevBtns = document.querySelectorAll(".prev-btn");
+            const progressBar = document.getElementById("progressBar");
+            let currentStep = 0;
+
+            function updateSteps() {
+                steps.forEach((step, index) => {
+                    step.classList.remove("active", "prev", "next");
+                    if (index === currentStep) {
+                        step.classList.add("active");
+                    } else if (index < currentStep) {
+                        step.classList.add("prev");
+                    } else {
+                        step.classList.add("next");
+                    }
+                });
+
+                // Update progress bar
+                const progressPercentage = ((currentStep + 1) / steps.length) * 100;
+                progressBar.style.width = progressPercentage + "%";
+            }
+
+            nextBtns.forEach(btn => {
+                btn.addEventListener("click", function () {
+                    if (currentStep < steps.length - 1) {
+                        currentStep++;
+                        updateSteps();
+                    }
+                });
+            });
+
+            prevBtns.forEach(btn => {
+                btn.addEventListener("click", function () {
+                    if (currentStep > 0) {
+                        currentStep--;
+                        updateSteps();
+                    }
+                });
+            });
+
+            updateSteps();
+        });
+        document.querySelectorAll('.image-scroll img').forEach(img => {
+            img.addEventListener('click', function() {
+                document.querySelectorAll('.image-scroll img').forEach(i => i.classList.remove('selected'));
+                this.classList.add('selected');
+                document.getElementById('selectedImage').value = this.getAttribute('data-name');
+                document.getElementById('cardSkeleton').value = this.getAttribute('data-name');
             });
         });
     </script>

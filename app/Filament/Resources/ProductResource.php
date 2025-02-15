@@ -62,6 +62,12 @@ class ProductResource extends Resource
                     ->maxSize(2048) // Max size in KB
                     ->disk('cloudinary')
                     ->required(),
+                Forms\Components\FileUpload::make('choice_images')
+                    ->label('Choice Images')
+                    ->multiple()
+                    ->image()
+                    ->maxSize(2048)
+                    ->disk('cloudinary'),
             ]);
     }
 
