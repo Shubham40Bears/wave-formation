@@ -45,7 +45,21 @@ class ProductResource extends Resource
                     ->relationship('cardType', 'name') // Load CardType relationship and display its name
                     ->searchable()
                     ->nullable(),
-                Forms\Components\Textarea::make('description')->nullable(),
+                Forms\Components\RichEditor::make('description')
+                    ->label('Description')
+                    ->required()
+                    ->toolbarButtons([
+                        'bold',
+                        'italic',
+                        'underline',
+                        'strike',
+                        'bulletList',
+                        'orderedList',
+                        'link',
+                        'codeBlock',
+                        'blockquote',
+                    ])
+                    ->columnSpanFull(),
                 Forms\Components\TextInput::make('stock')
                     ->required()
                     ->numeric(),
@@ -62,6 +76,15 @@ class ProductResource extends Resource
                     ->maxSize(2048) // Max size in KB
                     ->disk('cloudinary')
                     ->required(),
+                Select::make('copy_from_product_id')
+                    ->label('Copy Choice Images From')
+                    ->options(fn () => \App\Models\Product::pluck('name', 'id'))
+                    ->searchable()
+                    ->reactive()
+                    ->afterStateUpdated(fn ($state, callable $set) => 
+                        $set('choice_images', \App\Models\Product::find($state)?->choice_images ?? [])
+                    )
+                    ->helperText('Select an existing product to copy choice images.'),
                 Forms\Components\FileUpload::make('choice_images')
                     ->label('Choice Images')
                     ->multiple()
