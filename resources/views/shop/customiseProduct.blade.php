@@ -178,7 +178,7 @@
                             <!-- Step 2: To -->
                             <div class="form-step" id="step1">
                                 <label for="to" class="form-label">To</label>
-                                <input type="text" id="senderName" name="senderName" class="form-control" placeholder="Enter recipient's name">
+                                <input type="text" id="recevierName" name="recevierName" class="form-control" placeholder="Enter recipient's name">
                                 <div class="btn-cont">
                                     <button type="button" class="btn btn-tcw-outline mt-3 prev-btn"><i class="fa-solid fa-arrow-left-long"></i></button>
                                     <button type="button" class="btn btn-tcw-move mt-3 next-btn w-50">Next <i class="fa-solid fa-arrow-right-long"></i></button>
@@ -188,7 +188,7 @@
                             <!-- Step 3: From -->
                             <div class="form-step" id="step2">
                                 <label for="from" class="form-label">From</label>
-                                <input type="text" id="recevierName" name="recevierName" class="form-control" placeholder="Your name">
+                                <input type="text" id="senderName" name="senderName" class="form-control" placeholder="Your name">
                                 <div class="btn-cont">
                                     <button type="button" class="btn btn-tcw-outline mt-3 prev-btn"><i class="fa-solid fa-arrow-left-long"></i></button>
                                     <button type="button" class="btn btn-tcw-move mt-3 next-btn w-50">Next <i class="fa-solid fa-arrow-right-long"></i></button>
@@ -228,7 +228,7 @@
                     @endif                  
                     <!-- Submit button -->
                      <hr>
-                    <button data-mdb-ripple-init type="button" class="btn btn-tcw-move btn-block mb-4" id="previewCard">Preview & Comfirm Order</button>
+                    <button data-mdb-ripple-init type="button" class="btn btn-tcw-move btn-block mb-4" id="previewCard">Preview & Confirm Order</button>
                 </form>
             </div>
         </div>

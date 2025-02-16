@@ -40,7 +40,7 @@
                         <div class="text-center">
                             <!-- Product name-->
                             <h5 class="fw-bolder text-dark">{{$product->name}}</h5>
-                            <small class="text-dark">{{$product->description}}</small>
+                            <small class="text-dark">{!! Str::limit(strip_tags($product->description), 135, '...') !!}</small>
                             <br/>
                             <small class="text-dark">Material Type: {{$product->category->name}}</small>
                             <!-- Product price-->
