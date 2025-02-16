@@ -31,7 +31,7 @@
 							</div>
 							<span class="review-no">41 reviews</span>
 						</div> -->
-						<p class="product-description">{{$product->description}}</p>
+						<p class="product-description">{!! $product->description !!}</p>
 						<p class="product-description">Category: {{$product->cardType->name}}</p>
 						<p class="product-description">Material: {{$product->category->name}}</p>
 						<p class="product-description">Customizeable: Yes</p>
