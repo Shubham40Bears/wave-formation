@@ -29,9 +29,39 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css">
     <link rel="stylesheet" href="{{asset('tcw/css/tcw.css')}}">
-
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W47VSRBZ');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X6NRK3KNXE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-X6NRK3KNXE');
+    </script>
+    <script>
+    (function (c, s, q, u, a, r, e) {
+        c.hj=c.hj||function(){(c.hj.q=c.hj.q||[]).push(arguments)};
+        c._hjSettings = { hjid: a };
+        r = s.getElementsByTagName('head')[0];
+        e = s.createElement('script');
+        e.async = true;
+        e.src = q + c._hjSettings.hjid + u;
+        r.appendChild(e);
+    })(window, document, 'https://static.hj.contentsquare.net/c/csq-', '.js', 5299451);
+</script>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W47VSRBZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <div class="position-fixed top-0 end-0 p-3" style="z-index: 1050">
     <div id="liveToast" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="d-flex">

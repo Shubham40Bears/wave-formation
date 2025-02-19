@@ -48,6 +48,7 @@
         </div>
     </section>
     @push('scripts')
+    <script src="https://www.google.com/recaptcha/api.js?render=6Le83b4qAAAAAAANYy4UUrWaDjO8hvnpUle49HHf"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         $(document).on('submit','#contactForm',function(e){
