@@ -7,7 +7,7 @@
                 <div class="carousel-text">
                     <p class="head-text mb-0">TAP. CONNECT. IMPRESS!</p>
                     <p class="sub-text">Make an impact with a smart NFC card.</p>
-                    <a type="button" class="btn btn-lnk">Shop Now <i class="fa-solid fa-arrow-right-long"></i></a>
+                    <a href="{{route('shop')}}" class="btn btn-lnk">Shop Now <i class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
             </div>
             <div class="carousel-item">
@@ -15,7 +15,7 @@
                 <div class="carousel-text">
                     <p class="head-text mb-0">One Tap Can Say It All!</p>
                     <p class="sub-text">NFC cards that make sharing seamless.</p>
-                    <a type="button" class="btn btn-lnk">Shop Now <i class="fa-solid fa-arrow-right-long"></i></a>
+                    <a href="{{route('shop')}}" class="btn btn-lnk">Shop Now <i class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
             </div>
             <div class="carousel-item">
@@ -23,7 +23,7 @@
                 <div class="carousel-text">
                     <p class="head-text mb-0">Ditch the Paper, Go Digital!</p>
                     <p class="sub-text">Upgrade to NFC-powered sharing today.</p>
-                    <a type="button" class="btn btn-lnk">Shop Now <i class="fa-solid fa-arrow-right-long"></i></a>
+                    <a href="{{route('shop')}}" class="btn btn-lnk">Shop Now <i class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
             </div>
         </div>
