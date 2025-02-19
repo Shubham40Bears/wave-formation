@@ -164,8 +164,47 @@
     /* text-align: center; */
     letter-spacing: 0.9rem;
 }
+.submenu-section {
+  background: #fefefe00;
+  color: black;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 30%;
+  z-index: 3;
+  padding: 2.1rem;
+  transition: 600ms;
+  right: -100%;
+  box-shadow: -5px -7px 17px 8px #0000008c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.submenu-section.active{
+  right: 0;
+}
+.submenu-section li.nav-item{
+  padding: 1.1rem 0.2rem;
+  font-size: 1.2rem;
+  width: 100%;
+  /* text-align: center; */
+  letter-spacing: 0.9rem;
+}
+.back-menu{
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 1.1rem;
+  background: black;
+  color: white;
+  padding: 0.3rem 1.6rem;
+  border-radius: 6px;
+}
 li.nav-item span {
-    font-family: 'NexaLight';
+    font-family: 'NexaBold';
 }
 .stick-header{
     position: sticky;
@@ -845,6 +884,10 @@ li.nav-item span {
         width: 80%;
         backdrop-filter: blur(13px);
     }
+    .submenu-section{
+        width: 80%;
+        backdrop-filter: blur(13px);
+    }
     .brand-logo img{
         width: 25%;
     }
@@ -865,5 +908,8 @@ li.nav-item span {
     }
     .video-container{
       justify-content: center;
+    }
+    .menu-section li.nav-item a span{
+      font-family: 'NexaBold';
     }
   }

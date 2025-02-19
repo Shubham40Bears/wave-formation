@@ -130,7 +130,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <a class="nav-link menu-link" data-aos="flip-up" href="{{route('about')}}"><span>ABOUT</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" data-aos="flip-up" href="{{route('shop')}}"><span>SHOP</span></a>
+                    <a class="nav-link menu-link" data-aos="flip-up" href="javascript:void(0)" id="shopMenu"><span>SHOP</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" data-aos="flip-up" href="{{route('shop.checkout')}}"><span>CART</span></a>
@@ -145,6 +145,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </div>
     <!-- menu end -->
+    <!-- sub menu section start  -->
+    <div class="submenu-section">
+        <div class="back-menu">
+            Back
+        </div>
+        <div>
+            <ul class="navbar-nav ms-auto">
+                @foreach($cardTypes as $cardType)
+                <li class="nav-item">
+                    <a class="nav-link menu-link" data-aos="flip-up" href="{{ route('shop.category', ['ct_slug' => $cardType->slug]) }}"><span>{{$cardType->name}}</span></a>
+                </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+    <!-- sub menu section end  -->
 <main>
 {{$slot}}
 </main>
@@ -209,6 +225,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
     $(document).on('click','#toggleMenu',function(e){
         $('.menu-section').toggleClass('active');
+        $('.submenu-section').removeClass('active');
+
+    });
+    $(document).on('click','#shopMenu',function(e){
+        $('.menu-section').toggleClass('active');
+        $('.submenu-section').toggleClass('active');
+    });
+    $(document).on('click','.back-menu',function(e){
+        $('.menu-section').toggleClass('active');
+        $('.submenu-section').toggleClass('active');
     });
 </script>
 @stack('scripts')
