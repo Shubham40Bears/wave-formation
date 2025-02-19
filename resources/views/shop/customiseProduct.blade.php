@@ -56,7 +56,7 @@
                         <div class="secure_code"></div>
                         <div class="form-outline mb-4">
                             <label class="form-label" for="weddingDateTime">Card Front Image</label>
-                            <input type="file" name="displayPicture" id="displayPicture" class="d-none"/>
+                            <input type="file" accept="image/*" name="displayPicture" id="displayPicture" class="d-none"/>
                             <button class="btn btn-tcw-custom w-100" type="button" id="displayPictureButton">Select Image</button>
                         </div>
                         <div class="imageContainerDp mb-4">
@@ -64,7 +64,7 @@
                         <div class="form-outline mb-2">
                             <label class="form-label" for="weddingDateTime">Gallery Images</label>
                             <p><small>Images uploaded are not accessible to TCW and any third party applications.</small></p>
-                            <input type="file" name="galleryImages" id="imagesPicker" class="d-none" multiple/>
+                            <input type="file" accept="image/*" name="galleryImages" id="imagesPicker" class="d-none" multiple/>
                             <button class="btn btn-tcw-custom w-100" type="button" id="imagesButton">Select Gallery Images <i class="fa-solid fa-images"></i></button>
                         </div>
                         <div class="imageContainer mb-4">
@@ -89,7 +89,7 @@
                         </div>
                         <div class="form-outline mb-4">
                             <label class="form-label" for="weddingDateTime">Card Front Image</label>
-                            <input type="file" name="displayPicture" id="displayPicture" class="d-none"/>
+                            <input type="file" accept="image/*" name="displayPicture" id="displayPicture" class="d-none"/>
                             <button class="btn btn-tcw-custom" type="button" id="displayPictureButton">Select Image</button>
                         </div>
                         <div class="imageContainerDp mb-4">
@@ -97,7 +97,7 @@
                         <div class="form-outline mb-2">
                             <label class="form-label" for="weddingDateTime">Gallery Images</label>
                             <p><small>Images uploaded are not accessible to TCW and any third party applications.</small></p>
-                            <input type="file" name="galleryImages" id="imagesPicker" class="d-none" multiple/>
+                            <input type="file" accept="image/*" name="galleryImages" id="imagesPicker" class="d-none" multiple/>
                             <button class="btn btn-tcw-custom" type="button" id="imagesButton">Select Gallery Images <i class="fa-solid fa-images"></i></button>
                         </div>
                         <div class="imageContainer mb-4">
@@ -133,7 +133,7 @@
                         </div>
                         <div class="form-outline mb-4">
                             <label class="form-label" for="weddingDateTime">Display Image</label>
-                            <input type="file" name="displayPicture" id="displayPicture" class="d-none"/>
+                            <input type="file" accept="image/*" name="displayPicture" id="displayPicture" class="d-none"/>
                             <button class="btn btn-tcw-custom" type="button" id="displayPictureButton">Select Image</button>
                         </div>
                         <hr>
@@ -205,7 +205,7 @@
                             <!-- Step 5: Gallery Images -->
                             <div class="form-step active" id="step4">
                                 <label for="gallery" class="form-label">Upload Images</label>
-                                <input type="file" id="imagesPicker" name="galleryImages" class="form-control d-none" multiple>
+                                <input type="file" accept="image/*" id="imagesPicker" name="galleryImages" class="form-control d-none" multiple>
                                 <button class="btn btn-tcw-custom mb-2" type="button" id="imagesButton">Select Gallery Images <i class="fa-solid fa-images"></i></button>
                                 <div class="imageContainer mb-4">
                                     <div class="image-square add-more d-none">

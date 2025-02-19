@@ -1,6 +1,6 @@
 <x-tcw-layout>
 
-    <div class="vh-100 d-flex justify-content-center align-items-center">
+    <div class="vh-100 d-flex justify-content-center align-items-center container">
         <div class="col-md-4">
             <div class="border border-3 border-success"></div>
             <div class="card  bg-white shadow p-5">

@@ -104,7 +104,7 @@
             </div>
             <p>You will be able to login using the email provided for order tracking and other queries. Please check your email for details.</p>
             <hr class="mb-4">
-            <button class="btn btn-tcw-move btn-lg btn-block" type="button" id="checkoutPay">Continue to checkout</button>
+            <button class="btn btn-tcw btn-lg btn-block" type="button" id="checkoutPay">Continue to checkout</button>
           </form>
         </div>
       </div>
