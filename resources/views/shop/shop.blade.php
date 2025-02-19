@@ -70,6 +70,43 @@
             </div>
             @endforeach
         </div>
+        <nav aria-label="Page navigation example" class="pagination-container">
+            <ul class="pagination">
+                <!-- Previous Page Link -->
+                @if ($products->onFirstPage())
+                    <li class="page-item disabled">
+                        <span class="page-link"><i class="fa-solid fa-arrow-left-long"></i></span>
+                    </li>
+                @else
+                    <li class="page-item">
+                        <a class="page-link" href="{{ $products->previousPageUrl() }}" aria-label="Previous">
+                            <span aria-hidden="true"><i class="fa-solid fa-arrow-left-long"></i></span>
+                        </a>
+                    </li>
+                @endif
+
+                <!-- Page Number Links -->
+                @foreach ($products->links()->elements[0] as $page => $url)
+                    <li class="page-item {{ $products->currentPage() == $page ? 'active' : '' }}">
+                        <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                    </li>
+                @endforeach
+
+                <!-- Next Page Link -->
+                @if ($products->hasMorePages())
+                    <li class="page-item">
+                        <a class="page-link" href="{{ $products->nextPageUrl() }}" aria-label="Next">
+                            <span aria-hidden="true"><i class="fa-solid fa-arrow-right-long"></i></span>
+                        </a>
+                    </li>
+                @else
+                    <li class="page-item disabled">
+                        <span class="page-link"><i class="fa-solid fa-arrow-right-long"></i></span>
+                    </li>
+                @endif
+            </ul>
+        </nav>
+
     </div>
 </section>
 @push('scripts')
