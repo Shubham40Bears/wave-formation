@@ -1,5 +1,5 @@
 <x-tcw-layout>
-<section id="shop" class="py-5 my-5 container">
+<section id="shop" class="my-5 container">
     <div class="col-12 header-sec">
         <p class="heading m-0">shop</p>
         <p class="subheading">shop from our list of premium products.</p>

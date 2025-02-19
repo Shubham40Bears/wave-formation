@@ -130,6 +130,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <a class="nav-link menu-link" data-aos="flip-up" href="{{route('about')}}"><span>ABOUT</span></a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link menu-link" data-aos="flip-up" href="{{route('shop')}}"><span>SHOP</span></a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link menu-link" data-aos="flip-up" href="{{route('shop.checkout')}}"><span>CART</span></a>
                 </li>
                 <li class="nav-item">
