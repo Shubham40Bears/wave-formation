@@ -827,6 +827,18 @@ li.nav-item span {
 .completed .timeline-content {
   color: #198754;
 }
+.pagination-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-link{
+  color: black;
+}
+.active>.page-link, .page-link.active{
+  background-color: black;
+  border-color: black;
+}
 /* Media query */
 @media only screen and (max-width: 768px) {
     .menu-section{
