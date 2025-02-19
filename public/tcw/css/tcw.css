@@ -883,10 +883,14 @@ li.nav-item span {
     .menu-section{
         width: 80%;
         backdrop-filter: blur(13px);
+        background: #fefefe9c;
+        overflow: auto;
     }
     .submenu-section{
         width: 80%;
         backdrop-filter: blur(13px);
+        background: #fefefe9c;
+        overflow: auto;
     }
     .brand-logo img{
         width: 25%;
