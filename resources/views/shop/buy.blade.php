@@ -1,5 +1,5 @@
-<x-nonauth-layout>
-    <section id="checkout" class="py-5 my-5">
+<x-tcw-layout>
+    <section id="checkout" class="my-5">
         @if($product)
         <div class="container">
         <div class="row">
@@ -18,14 +18,14 @@
             <li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
                 <h6 class="my-0">SGST</h6>
-                <small class="text-muted">Customizeable PVC Card x 1</small>
+                <small class="text-muted">9%</small>
               </div>
               <span class="text-muted">₹ {{ number_format(($product->sales_price / 1.18) * 0.09, 2) }}</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
                 <h6 class="my-0">CGST</h6>
-                <small class="text-muted">Customizeable PVC Card x 1</small>
+                <small class="text-muted">9%</small>
               </div>
               <span class="text-muted">₹ {{ number_format(($product->sales_price / 1.18) * 0.09, 2) }}</span>
             </li>
@@ -129,6 +129,8 @@
     </section>
     @if($product)
     @push('scripts')
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         $(document).on('click','#checkoutPay', function () {
             $(this).attr('disabled', true);
@@ -235,4 +237,4 @@
     </script>
     @endpush
     @endif
-</x-nonauth-layout>
+</x-tcw-layout>

@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css">
     <link rel="stylesheet" href="{{asset('tcw/css/demo.css')}}">
+    @if(false)
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -58,6 +59,7 @@
         r.appendChild(e);
     })(window, document, 'https://static.hj.contentsquare.net/c/csq-', '.js', 5299451);
 </script>
+@endif
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->

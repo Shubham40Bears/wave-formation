@@ -1,10 +1,9 @@
-<x-nonauth-layout>
-    <section id="" class="py-5 my-5">
+<x-tcw-layout>
+    <section id="" class="my-5">
         <div class="container">
             <div class="row">
                 <div class="col-12 header-sec">
-                    <p class="heading m-0">Contact Us</p>
-                    <p class="subheading">Raise a ticket for any queries or just drop a message to us</p>
+                    <p class="heading mb-4">Contact Us</p>
                 </div>
                 <div class="col-lg-12">
                     <form role="form" method="POST" action="{{ route('contactSave') }}" id="contactForm">
@@ -41,7 +40,7 @@
                         </div>
                         
                         <div class="text-center">
-                            <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0 btn-tcw-move">Send <i class="far fa-paper-plane"></i></button>
+                            <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0 btn-tcw">Send <i class="far fa-paper-plane"></i></button>
                         </div>
                     </form>
                 </div>
@@ -49,26 +48,10 @@
         </div>
     </section>
     @push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         $(document).on('submit','#contactForm',function(e){
             e.preventDefault();
-            toastr.options = {
-                "closeButton": true,
-                "debug": false,
-                "newestOnTop": false,
-                "progressBar": true,
-                "positionClass": "toast-bottom-full-width",
-                "preventDuplicates": false,
-                "onclick": null,
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "5000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-                }
             let form = $(this);
             let submitButton = form.find("button[type='submit']");
             let inputs = form.find("input, select, textarea");
@@ -87,11 +70,27 @@
             };
             axios.post(form.attr("action"), formData)
                 .then(response => {
-                    toastr.success('Message sent successfully, please check your email for details', 'Yay!');
+                    new Noty({
+                        type: "success", // success, error, warning, info
+                        layout: "topRight", // topLeft, topCenter, bottomRight, etc.
+                        text: "Message sent successfully, please check your email for details",
+                        timeout: 3000, // Auto-dismiss in 3 seconds
+                        progressBar: true,
+                        closeWith: ["click", "button"],
+                        theme: "metroui" // Themes: "metroui", "sunset", "relax", etc.
+                    }).show();
                     form[0].reset(); // Reset the form
                 })
                 .catch(error => {
-                    toastr.error('Something went wrong, please try again later.', 'Oops!!');
+                    new Noty({
+                        type: "error", // success, error, warning, info
+                        layout: "topRight", // topLeft, topCenter, bottomRight, etc.
+                        text: "Something went wrong, please try again later.",
+                        timeout: 3000, // Auto-dismiss in 3 seconds
+                        progressBar: true,
+                        closeWith: ["click", "button"],
+                        theme: "metroui" // Themes: "metroui", "sunset", "relax", etc.
+                    }).show();
                     console.error(error);
                 })
                 .finally(() => {
@@ -102,4 +101,4 @@
         });
     </script>
     @endpush
-</x-nonauth-layout>
+</x-tcw-layout>

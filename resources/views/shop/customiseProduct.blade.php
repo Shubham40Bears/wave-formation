@@ -1,11 +1,8 @@
-
-@include('components.preview-modal')
-<x-nonauth-layout>
-    <section id="" class="py-5 my-5">
+<x-tcw-layout>
+    <section id="" class="py-5">
         <div class="container">
             <div class="col-12 header-sec">
-                <p class="heading m-0">Customise Card</p>
-                <p class="subheading">These details will be printed on the card you selected</p>
+                <p class="heading m-0 mb-4">Customise Your Card</p>
                 <form id="customiseForm" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="ps" value="{{$product->cardType->slug}}" />
@@ -60,7 +57,7 @@
                         <div class="form-outline mb-4">
                             <label class="form-label" for="weddingDateTime">Card Front Image</label>
                             <input type="file" name="displayPicture" id="displayPicture" class="d-none"/>
-                            <button class="btn btn-tcw-move" type="button" id="displayPictureButton">Select Image</button>
+                            <button class="btn btn-tcw-custom w-100" type="button" id="displayPictureButton">Select Image</button>
                         </div>
                         <div class="imageContainerDp mb-4">
                         </div>
@@ -68,7 +65,7 @@
                             <label class="form-label" for="weddingDateTime">Gallery Images</label>
                             <p><small>Images uploaded are not accessible to TCW and any third party applications.</small></p>
                             <input type="file" name="galleryImages" id="imagesPicker" class="d-none" multiple/>
-                            <button class="btn btn-tcw-move" type="button" id="imagesButton">Select Gallery Images <i class="fa-solid fa-images"></i></button>
+                            <button class="btn btn-tcw-custom w-100" type="button" id="imagesButton">Select Gallery Images <i class="fa-solid fa-images"></i></button>
                         </div>
                         <div class="imageContainer mb-4">
                             <div class="image-square add-more d-none">
@@ -93,7 +90,7 @@
                         <div class="form-outline mb-4">
                             <label class="form-label" for="weddingDateTime">Card Front Image</label>
                             <input type="file" name="displayPicture" id="displayPicture" class="d-none"/>
-                            <button class="btn btn-tcw-move" type="button" id="displayPictureButton">Select Image</button>
+                            <button class="btn btn-tcw-custom" type="button" id="displayPictureButton">Select Image</button>
                         </div>
                         <div class="imageContainerDp mb-4">
                         </div>
@@ -101,7 +98,7 @@
                             <label class="form-label" for="weddingDateTime">Gallery Images</label>
                             <p><small>Images uploaded are not accessible to TCW and any third party applications.</small></p>
                             <input type="file" name="galleryImages" id="imagesPicker" class="d-none" multiple/>
-                            <button class="btn btn-tcw-move" type="button" id="imagesButton">Select Gallery Images <i class="fa-solid fa-images"></i></button>
+                            <button class="btn btn-tcw-custom" type="button" id="imagesButton">Select Gallery Images <i class="fa-solid fa-images"></i></button>
                         </div>
                         <div class="imageContainer mb-4">
                             <div class="image-square add-more d-none">
@@ -109,7 +106,7 @@
                             </div>
                         </div>
                     @endif
-                    @if($product->cardType->slug === 'event-cards')
+                    @if($product->cardType->slug === 'event-cards' || $product->cardType->slug === 'business-card')
                         <div class="form-group">
                             <input type="text" id="firstName"  name="firstName" class="form-control" placeholder=" "/>
                             <label class="form-label" for="firstName">First Name</label>
@@ -137,7 +134,7 @@
                         <div class="form-outline mb-4">
                             <label class="form-label" for="weddingDateTime">Display Image</label>
                             <input type="file" name="displayPicture" id="displayPicture" class="d-none"/>
-                            <button class="btn btn-tcw-move" type="button" id="displayPictureButton">Select Image</button>
+                            <button class="btn btn-tcw-custom" type="button" id="displayPictureButton">Select Image</button>
                         </div>
                         <hr>
 
@@ -173,7 +170,7 @@
                                     @endforeach
                                 </div>
                                 <input type="hidden" id="selectedImage" name="selected_image">
-                                <button type="button" class="btn btn-tcw-move mt-3 next-btn">Next <i class="fa-solid fa-arrow-right-long"></i></button>
+                                <button type="button" class="btn btn-tcw-custom mt-3 next-btn">Next <i class="fa-solid fa-arrow-right-long"></i></button>
                             </div>
                             <!-- Step 2: To -->
                             <div class="form-step" id="step1">
@@ -181,7 +178,7 @@
                                 <input type="text" id="recevierName" name="recevierName" class="form-control" placeholder="Enter recipient's name">
                                 <div class="btn-cont">
                                     <button type="button" class="btn btn-tcw-outline mt-3 prev-btn"><i class="fa-solid fa-arrow-left-long"></i></button>
-                                    <button type="button" class="btn btn-tcw-move mt-3 next-btn w-50">Next <i class="fa-solid fa-arrow-right-long"></i></button>
+                                    <button type="button" class="btn btn-tcw-custom mt-3 next-btn w-50">Next <i class="fa-solid fa-arrow-right-long"></i></button>
                                 </div>
                             </div>
 
@@ -191,7 +188,7 @@
                                 <input type="text" id="senderName" name="senderName" class="form-control" placeholder="Your name">
                                 <div class="btn-cont">
                                     <button type="button" class="btn btn-tcw-outline mt-3 prev-btn"><i class="fa-solid fa-arrow-left-long"></i></button>
-                                    <button type="button" class="btn btn-tcw-move mt-3 next-btn w-50">Next <i class="fa-solid fa-arrow-right-long"></i></button>
+                                    <button type="button" class="btn btn-tcw-custom mt-3 next-btn w-50">Next <i class="fa-solid fa-arrow-right-long"></i></button>
                                 </div>
                             </div>
 
@@ -201,7 +198,7 @@
                                 <textarea id="message" name="message" class="form-control" placeholder="Write your message"></textarea>
                                 <div class="btn-cont">
                                     <button type="button" class="btn btn-tcw-outline mt-3 prev-btn"><i class="fa-solid fa-arrow-left-long"></i></button>
-                                    <button type="button" class="btn btn-tcw-move mt-3 next-btn w-50">Next <i class="fa-solid fa-arrow-right-long"></i></button>
+                                    <button type="button" class="btn btn-tcw-custom mt-3 next-btn w-50">Next <i class="fa-solid fa-arrow-right-long"></i></button>
                                 </div>
                             </div>
 
@@ -209,7 +206,7 @@
                             <div class="form-step active" id="step4">
                                 <label for="gallery" class="form-label">Upload Images</label>
                                 <input type="file" id="imagesPicker" name="galleryImages" class="form-control d-none" multiple>
-                                <button class="btn btn-tcw-move mb-2" type="button" id="imagesButton">Select Gallery Images <i class="fa-solid fa-images"></i></button>
+                                <button class="btn btn-tcw-custom mb-2" type="button" id="imagesButton">Select Gallery Images <i class="fa-solid fa-images"></i></button>
                                 <div class="imageContainer mb-4">
                                     <div class="image-square add-more d-none">
                                         <span>+ Add More</span>
@@ -228,12 +225,14 @@
                     @endif                  
                     <!-- Submit button -->
                      <hr>
-                    <button data-mdb-ripple-init type="button" class="btn btn-tcw-move btn-block mb-4" id="previewCard">Preview & Confirm Order</button>
+                    <button data-mdb-ripple-init type="button" class="btn btn-tcw-custom btn-block mb-4" id="previewCard">Preview & Confirm Order</button>
                 </form>
             </div>
         </div>
     </section>
+    @include('components.preview-modal')
     @push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         if($(".social-media-icons i").length) {
             $(".social-media-icons i").on("click", function () {
@@ -348,4 +347,4 @@
         });
     </script>
     @endpush
-</x-nonauth-layout>
+</x-tcw-layout>

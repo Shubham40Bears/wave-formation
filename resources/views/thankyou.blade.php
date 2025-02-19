@@ -1,4 +1,4 @@
-<x-nonauth-layout>
+<x-tcw-layout>
 
     <div class="vh-100 d-flex justify-content-center align-items-center">
         <div class="col-md-4">
@@ -23,4 +23,4 @@
             </div>
         </div>
     </div>
-</x-nonauth-layout>
+</x-tcw-layout>

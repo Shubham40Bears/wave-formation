@@ -1,10 +1,9 @@
-<x-nonauth-layout title="Track you order | The Connect Wave">
-    <section id="checkout" class="py-5 my-5">
+<x-tcw-layout title="Track you order | The Connect Wave">
+    <section id="checkout" class="my-5">
         <div class="container">
             <div class="row">
                 <div class="col-12 header-sec">
-                    <p class="heading m-0">Track your order</p>
-                    <p class="subheading">Enter your Order id received over email</p>
+                    <p class="heading m-0 text-center mb-4">Track your order</p>
                 </div>
                 <div class="col-lg-12">
                     <form class="card p-2">
@@ -73,6 +72,7 @@
         </div>
     </section>
     @push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         $(document).on('ready', function () {
             const orderId = $('#orderId').val();
@@ -105,4 +105,4 @@
         });
     </script>
     @endpush
-</x-nonauth-layout>
+</x-tcw-layout>

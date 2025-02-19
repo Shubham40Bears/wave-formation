@@ -37,9 +37,12 @@ class ShopController extends Controller
     public function productDetails(Request $request, $product_slug){
         // Fetch paginated products
         $product = Product::where('slug', $product_slug)->first();
-
+        $relatedProducts = Product::where('card_type_id', $product->card_type_id)
+            ->where('id', '!=', $product->id)
+            ->orderBy('updated_at', 'DESC')
+            ->paginate(4);
         // Return the view with paginated products
-        return view('shop.productDetails', compact('product'));
+        return view('shop.productDetails', compact('product','relatedProducts'));
     }
     public function customiseCard(Request $request, $product_slug){
         // Fetch paginated products

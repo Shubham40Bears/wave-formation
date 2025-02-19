@@ -56,8 +56,8 @@
                 </div>
             </div>
             <div class="modal-footer d-flex align-items-center justify-content-between">
-                <button type="button" class="btn btn-tcw-move w-45" id="closePreview">Continue Editing</button>
-                <button type="button" class="btn btn-tcw-move w-45" id="saveOrder">Confirm</button>
+                <button type="button" class="btn btn-tcw-outline w-45" id="closePreview">Continue Editing <i class="fa-regular fa-pen-to-square"></i></button>
+                <button type="button" class="btn btn-tcw-custom w-45" id="saveOrder">Confirm <i class="fa-solid fa-check"></i></button>
             </div>
             </div>
         </div>

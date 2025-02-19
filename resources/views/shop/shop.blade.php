@@ -1,5 +1,5 @@
-<x-nonauth-layout>
-<section id="shop" class="py-5 my-5">
+<x-tcw-layout>
+<section id="shop" class="py-5 my-5 container">
     <div class="col-12 header-sec">
         <p class="heading m-0">shop</p>
         <p class="subheading">shop from our list of premium products.</p>
@@ -15,7 +15,7 @@
         <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 row-cols-xl-3 justify-content-center">
             @foreach($products as $product)
             <div class="col mb-5">
-                <a href="{{route('shop.details',['product_slug' => $product->slug])}}">
+                <a href="{{route('shop.details',['product_slug' => $product->slug])}}" class="prod-card-links">
                 <div class="card h-100 prod-card">
                     @if($product->stock === 0)
                         <div class="sold-out-label position-absolute top-0 start-50 translate-middle-x bg-danger text-white py-1 px-3 rounded-3">
@@ -24,7 +24,7 @@
                     @else
                         @if($product->sales_price)
                             <!-- <div class="position-absolute top-0 start-50 translate-middle-x bg-danger text-white sale-label">SALE</div> -->
-                            <div class="box">
+                            <div class="ribbon-box">
                                 <div class="ribbon ribbon-top-right"><span>sale</span></div>
                             </div>
                         @endif
@@ -63,7 +63,7 @@
                         <div class="text-center w-65"><a class="btn btn-dark mt-auto w-100" href="{{route('shop.product.custom',['product_slug' => $product->slug])}}">Buy Now</a></div>
                     </div>
                     @else
-                        <p class="no-stock">Out of stock</p>
+                        <p class="no-stock text-center">Out of stock</p>
                     @endif
                 </div>
             </a>
@@ -71,5 +71,28 @@
             @endforeach
         </div>
     </div>
-        </section>
-</x-nonauth-layout>
+</section>
+@push('scripts')
+<script>
+if($('#shop .product-images').length > 0){
+		$('.product-images').each(function () {
+			const container = $(this); // The container with overflow hidden
+			const images = container.find('.prod-img'); // Images inside the container
+			let currentIndex = 0;
+	
+			function scrollNextImage() {
+				// Calculate the scroll position for the next image
+				const scrollWidth = container[0].scrollWidth / images.length; // Width of each image
+				currentIndex = (currentIndex + 1) % images.length;
+	
+				// Scroll to the calculated position
+				container.animate({ scrollLeft: currentIndex * scrollWidth }, 500); // Smooth scroll
+			}
+	
+			// Start scrolling every 3 seconds
+			setInterval(scrollNextImage, 3000);
+		});
+	}
+</script>
+@endpush
+</x-tcw-layout>

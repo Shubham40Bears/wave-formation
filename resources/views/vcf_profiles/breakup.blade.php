@@ -10,7 +10,6 @@
                 <img src="{{$vcfCard->photo_url}}" class="rounded-circle profile-img">
                 <h3 class="mt-3">{{$vcfCard->first_name}}</h3>
                 <small class="mt-4">{{$vcfCard->profile_description}}</small>
-                <div id="lottie-animation"></div>
                 <hr class="line">
                 
                 <!-- Gallery Section Below -->

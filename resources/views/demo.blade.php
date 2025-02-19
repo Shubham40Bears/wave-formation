@@ -24,7 +24,7 @@
         <a class="btn btn-tcw" href="{{route('shop')}}">EXPLORE NOW</a>
     </div>
 </section>
-<section class="container pt-5 pb-5 color-bg">
+<section class="container pt-5 pb-5 color-bg d-md-none">
     <div class="col-12 header-sec">
         <p class="heading m-0">features</p>
         <p class="subheading">just what you need</p>
@@ -196,7 +196,7 @@
         </div>
     </div>
 </section>
-<section class="container pt-5 h-auto color-bg">
+<section class="container pt-5 h-auto color-bg d-md-none">
     <div class="col-12 header-sec">
         <p class="heading m-0">Most <i class="fas fa-heart text-danger"></i> Products</p>
         <p class="subheading">get yours today</p>
