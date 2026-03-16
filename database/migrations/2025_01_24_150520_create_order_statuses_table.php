@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        $this->down();
         Schema::create('order_statuses', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('order_id');
