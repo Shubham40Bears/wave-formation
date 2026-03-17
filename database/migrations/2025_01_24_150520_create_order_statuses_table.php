@@ -11,18 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $this->down();
-        Schema::create('order_statuses', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('order_id');
-            $table->string('status');
-            $table->text('remarks')->nullable();
-            $table->timestamp('status_updated_at')->nullable();
-            $table->timestamps();
+        // $this->down();
+        // Schema::create('order_statuses', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->unsignedBigInteger('order_id');
+        //     $table->string('status');
+        //     $table->text('remarks')->nullable();
+        //     $table->timestamp('status_updated_at')->nullable();
+        //     $table->timestamps();
 
-            // Foreign key constraint
-            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
-        });
+        //     // Foreign key constraint
+        //     $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
+        // });
     }
 
     /**

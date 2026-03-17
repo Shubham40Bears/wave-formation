@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AttendanceMarker;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PromoCodeController;
 use App\Http\Controllers\VcfCardController;
@@ -19,3 +20,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/track/order/{orderId}', [OrderController::class, 'trackOrder'])->name('trackOrder');
 Route::post('/apply-promo', [PromoCodeController::class, 'applyCode']);
+Route::post('/attendance/{uuid}', [AttendanceMarker::class, 'markAttendance']);
