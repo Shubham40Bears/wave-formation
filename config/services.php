@@ -33,5 +33,9 @@ return [
     'google_maps' => [
         'api_key' => env('GOOGLE_MAP_API_KEY'),
     ],
+    'whatsapp' => [
+        'phone_id' => env('WHATSAPP_PHONE_ID'),
+        'token' => env('WHATSAPP_TOKEN'),
+    ]
 
 ];
