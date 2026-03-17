@@ -4,6 +4,7 @@ use App\Http\Controllers\AttendanceMarker;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PromoCodeController;
 use App\Http\Controllers\VcfCardController;
+use App\Http\Controllers\WebhookController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/track/order/{orderId}', [OrderController::class, 'trackOrder'])->name('trackOrder');
 Route::post('/apply-promo', [PromoCodeController::class, 'applyCode']);
 Route::post('/attendance/{uuid}', [AttendanceMarker::class, 'markAttendance']);
+Route::get('/webhook/whatsapp', [WebhookController::class, 'verify']);
+Route::post('/webhook/whatsapp', [WebhookController::class, 'handle']);
