@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Models\Attendance;
 use App\Models\Student;
+use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -70,6 +71,14 @@ class ProcessAttendance implements ShouldQueue
         }
     }
     public function sendWhatsappNotification($student, $type, $time, $date){
+        $indianDateTime = Carbon::createFromFormat('Y-m-d H:i:s', $date . ' ' . $time, 'UTC')
+                            ->setTimezone('Asia/Kolkata');
+
+        // 2. Format for Indian standards
+        // Date: DD-MM-YYYY (e.g., 17-03-2026)
+        // Time: hh:mm A (e.g., 06:45 PM)
+        $formattedDate = $indianDateTime->format('d-m-Y');
+        $formattedTime = $indianDateTime->format('h:i A');
         Log::error("WhatsApp API Init: " .config('services.whatsapp.phone_id'));
         $response = Http::withToken(config('services.whatsapp.token'))
             ->post("https://graph.facebook.com/v21.0/" . config('services.whatsapp.phone_id') . "/messages", [
@@ -102,12 +111,12 @@ class ProcessAttendance implements ShouldQueue
                                 [
                                     'type' => 'text',
                                     'parameter_name' => 'date',
-                                    'text' => $date
+                                    'text' => $formattedDate
                                 ],
                                 [
                                     'type' => 'text',
                                     'parameter_name' => 'time',
-                                    'text' => $time
+                                    'text' => $formattedTime
                                 ],
                             ]
                         ]
