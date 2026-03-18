@@ -1,0 +1,160 @@
+:root {
+            --primary-green: #34675c;
+            --bg-light: #f4f7f6;
+            --card-bg: #e9f0ef;
+            --text-dark: #2c4a44;
+            --text-secondary: #7a948f;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .phone-container {
+            width: 100%;
+            background-color: white;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Header Section */
+        .header {
+            border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            background: linear-gradient(135deg, #4c8479 0%, #2b5f56 100%);
+            /* box-shadow: 1px 4px 9px 1px #00000063; */
+            box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.35);
+            padding: 30px 20px;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .profile-pic {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.3);
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .user-info h1 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .user-info p {
+            margin: 4px 0;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* Medical Info Card */
+        .content {
+            padding: 20px;
+        }
+
+        .medical-card {
+            background-color: var(--card-bg);
+            border-radius: 25px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.35);
+            height: 45vh;
+            max-height: 55vh;
+            overflow: auto;
+        }
+
+        .label {
+            color: var(--text-secondary);
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .blood-group-val {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin: 5px 0 15px 0;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #cbdad7;
+            margin: 15px 0;
+        }
+
+        .info-section {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .info-val {
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 16px;
+            margin-top: 4px;
+        }
+
+        .med-note {
+            font-size: 14px;
+            line-height: 1.4;
+            color: var(--text-dark);
+            font-weight: 500;
+            margin-top: 5px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #4c8479 0%, #2b5f56 100%);
+            /* box-shadow: 1px 4px 9px 1px #00000063; */
+            box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.35);
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 50px;
+            font-weight: 400;
+            margin-bottom: 12px;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            position: absolute;
+            bottom: 2rem;
+            left: 1.2rem;
+            right: 1.2rem;
+        }
+        .btn-btm-6{
+            bottom: 6rem;
+        }
+
+        .btn svg {
+            margin-right: 10px;
+        }
+
+        .footer-link {
+            display: block;
+            text-align: center;
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }

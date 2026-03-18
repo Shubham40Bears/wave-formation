@@ -44,6 +44,39 @@ class VcfCardController extends Controller
         Session::forget('secret_verified');
         return view('vcf_profiles.'.$vcfCard->card_type, compact('vcfCard','vcfData'));
     }
+    public function showStudent(Request $request, $profile_code)
+    {
+        // $vcfCard = VcfProfileData::where('profile_code', $profile_code)->firstOrFail();
+        // $url = $request->fullUrl();
+        // $ipAddress = $request->ip();
+        // $vcfProfileDataId = $vcfCard->id;
+        
+        // $log = UrlAccessLog::where('url', $url)
+        //     ->where('ip_address', $ipAddress)
+        //     ->where('vcf_profile_data_id', $vcfProfileDataId)
+        //     ->first();
+
+        // if ($log) {
+        //     $log->increment('access_count');
+        // } else {
+        //     UrlAccessLog::create([
+        //         'url' => $url,
+        //         'ip_address' => $ipAddress,
+        //         'vcf_profile_data_id' => $vcfProfileDataId,
+        //         'access_count' => 1,
+        //     ]);
+        // }
+        // $vcfData = '';
+        // if($vcfCard->card_type === 'business') {
+        //     $vcfData = $this->generateVcf($vcfCard->toArray());
+        // }
+        // // dd($vcfData);
+        // if($vcfCard->secret_mode && !Session::has('secret_verified')){
+        //     return view('vcf_profiles.secret', compact('profile_code'));
+        // }
+        Session::forget('secret_verified');
+        return view('vcf_profiles.studentprofile');
+    }
 
     /**
      * Generate the VCF data from the VcfCard model.

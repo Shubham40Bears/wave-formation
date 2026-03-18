@@ -38,6 +38,7 @@ Route::get('/shipping-and-delivery', [PageController::class, 'shipping'])->name(
 Route::get('/privacy-policy', [PageController::class, 'privacy'])->name('privacy');
 
 Route::get('/vcf/{profile_code}', [VcfCardController::class, 'show']);
+Route::get('/student/{profile_code}', [VcfCardController::class, 'showStudent']);
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 Route::get('/shop/category/{ct_slug}', [ShopController::class, 'getByCardType'])->name('shop.category');
 Route::get('/p/d/{product_slug}', [ShopController::class, 'productDetails'])->name('shop.details');
