@@ -1,7 +1,7 @@
 <x-student-layout>
 <div class="phone-container">
     <div class="header">
-        <img src="https://this-person-does-not-exist.com/img/avatar-gend57d9381ecdaef800d6a9c49c68d1bf4.jpg" alt="Aarav Sharma" class="profile-pic">
+        <img src="https://res.cloudinary.com/shubhambhattacharya/image/upload/v1773809969/TCW_-_Student_ID_Card_jabaum.jpg" alt="Aarav Sharma" class="profile-pic">
         <div class="user-info">
             <h1>Aarav Sharma</h1>
             <p>Age: 11 Years</p>
